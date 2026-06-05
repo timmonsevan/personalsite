@@ -1,0 +1,144 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+  padding: 2rem;
+  max-width: 900px;
+  font-family:
+    "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #222;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+}
+
+h2 {
+  font-size: 1.2rem;
+  border-bottom: 1px solid #ccc;
+}
+
+h3 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 0.95rem;
+  font-style: italic;
+  font-weight: normal;
+}
+
+h5 {
+  font-size: 0.85rem;
+  font-weight: normal;
+  color: #555;
+}
+
+table {
+  border-collapse: collapse;
+  border: none;
+  margin: 0 auto;
+  width: 100%;
+  table-layout: auto;
+}
+
+table td,
+table th {
+  border: none;
+  text-align: center;
+  padding: 0.1rem 1.5rem;
+  font-size: 0.85rem;
+  color: #555;
+  white-space: nowrap;
+}
+
+.skilltbl {
+  display: flex;
+  padding: 0.5rem 0rem;
+}
+
+.js, .tdd {
+  font-size: .72rem;
+}
+
+.bah {
+  margin-bottom: 3%;
+}
+
+.contact {
+  display: flex;
+  gap: 3%;
+  padding: 0rem 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 600px) {
+  .contact {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 1.25rem;
+    font-size: 15px;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  table td,
+  table th {
+    padding: 0.1rem 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 0.75rem;
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 1.3rem;
+  }
+
+  table td,
+  table th {
+    padding: 0.2rem 0.4rem;
+    font-size: 0.75rem;
+    white-space: normal;
+  }
+}
+
+@media print {
+  body {
+    padding: 0;
+    font-size: 12pt;
+  }
+
+  @page {
+    margin: 0.75in;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
