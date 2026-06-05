@@ -46,14 +46,14 @@ a:visited {
   padding: 5%;
 }
 
-.header-container,
+.container,
 .contact-header {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.header-container img {
+.container img {
   max-width: 100%;
   height: auto;
 }
