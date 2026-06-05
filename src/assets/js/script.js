@@ -1,3 +1,17 @@
+const dropdownBtn = document.getElementById('dropdown-btn');
+const dropdownMenu = document.getElementById('dropdown-menu');
+
+dropdownBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  const isOpen = dropdownMenu.classList.toggle('open');
+  dropdownBtn.setAttribute('aria-expanded', isOpen);
+});
+
+document.addEventListener('click', () => {
+  dropdownMenu.classList.remove('open');
+  dropdownBtn.setAttribute('aria-expanded', 'false');
+});
+
 const toggleButton = document.getElementById('theme-toggle');
 
 toggleButton.addEventListener('click', () => {

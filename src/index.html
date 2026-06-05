@@ -20,9 +20,25 @@
       <div class="logo">Evan Timmons</div>
       <a href="./index.html">Home</a>
       <a href="./resume/index.html">Resume</a>
-      <button id="theme-toggle" aria-label="Toggle dark mode" class="dark-theme-toggle">
-        Switch Theme
-      </button>
+      <div class="dropdown">
+        <button
+          id="dropdown-btn"
+          class="dropdown-trigger"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Settings &#9662;
+        </button>
+        <div id="dropdown-menu" class="dropdown-menu">
+          <button
+            id="theme-toggle"
+            aria-label="Toggle dark mode"
+            class="dark-theme-toggle"
+          >
+            Switch Theme
+          </button>
+        </div>
+      </div>
     </nav>
     <header>
       <div class="header-container">
