@@ -16,33 +16,73 @@
   </head>
 
   <body>
-    <nav class="navbar">
-      <div class="logo">Evan Timmons</div>
-      <a href="./index.html">Home</a>
-      <a href="./resume/index.html">Resume</a>
-      <div class="dropdown">
+    <header>
+      <nav class="navbar">
+        <div class="logo">Evan Timmons</div>
         <button
-          id="dropdown-btn"
-          class="dropdown-trigger"
-          aria-haspopup="true"
+          id="nav-toggle"
+          class="nav-toggle"
+          aria-label="Toggle navigation"
           aria-expanded="false"
         >
-          Settings &#9662;
+          &#9776;
         </button>
-        <div id="dropdown-menu" class="dropdown-menu">
-          <button
-            id="theme-toggle"
-            aria-label="Toggle dark mode"
-            class="dark-theme-toggle"
-          >
-            Switch Theme
-          </button>
+        <div id="nav-links" class="nav-links">
+          <div class="home">
+            <button class="nav-link-btn">
+              <img
+                src="./assets/images/home_app_icon.png"
+                alt="Home Icon"
+                class="icon"
+              >
+              <a href="./index.html">Home</a>
+            </button>
+          </div>
+          <div class="resume">
+            <button class="nav-link-btn">
+              <img 
+                src="./assets/images/document_app_icon.png" 
+                alt="Document Icon"
+                class="icon"
+              >
+              <a href="./resume/index.html">Resume</a>
+            </button>
+          </div>
+          <div class="settings-dropdown">
+            <button
+              id="dropdown-btn"
+              class="dropdown-trigger"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <img
+                src="./assets/images/settings_app_icon.png"
+                alt="Settings Icon"
+                class="icon"
+              >
+              Settings &#9662;
+            </button>
+            <div id="dropdown-menu" class="dropdown-menu">
+              <button
+                id="theme-toggle"
+                aria-label="Toggle dark mode"
+                class="dark-theme-toggle"
+              >
+                Switch Theme
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
-    </nav>
-    <div class="container">
+      </nav>
+    </header>
+
+    <div class="body-content-container">
       <h1>Hi! I'm Evan.</h1>
-      <img src="./assets/images/profilepic.jpg" alt="Me on the Buckeye Trail" />
+      <img
+        src="./assets/images/profilepic.jpg"
+        alt="Me on the Buckeye Trail"
+        class="profile-photo"
+      />
       <h3>I'm a programmer.</h3>
       <h3>I'm a musician.</h3>
       <h5>

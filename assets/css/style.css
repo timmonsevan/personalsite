@@ -34,26 +34,33 @@ a:visited {
   color: var(--link-visited-color);
 }
 
-.navbar {
-  position: sticky;
-  top: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  transition: background-color 0.3s, color 0.3s;
-  padding: 5%;
+.nav-toggle {
+  display: block;
+  align-self: auto;
 }
 
-.container,
+header {
+  position: sticky;
+  top: 0;
+}
+
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5%;
+  background-color: var(--bg-color);
+}
+
+.body-content-container,
 .contact-header {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.container img {
+.body-content-container img {
   max-width: 100%;
   height: auto;
 }
@@ -66,23 +73,33 @@ a:visited {
   align-items: center;
 }
 
-.dropdown {
+.settings-dropdown {
   position: relative;
 }
 
-.dropdown-trigger {
+.dropdown-trigger,
+.nav-link-btn,
+.dark-theme-toggle {
   background-color: #4f46e5;
   color: #F0F0F0;
   font-size: 1rem;
-  padding: 0.4rem 0.9rem;
   border: none;
-  border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.2s ease;
+}
+
+.dropdown-trigger,
+.nav-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 8px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
-.dropdown-trigger:hover {
+.dropdown-trigger:hover,
+.dark-theme-toggle:hover {
   background-color: #4338ca;
 }
 
@@ -104,21 +121,29 @@ a:visited {
   display: block;
 }
 
-.dark-theme-toggle {
-  width: 100%;
-  text-align: left;
-  background-color: #4f46e5;
-  color: #F0F0F0;
-  font-size: 1rem;
-  padding: 0.4rem 0.75rem;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
+.icon {
+  width: 1.2rem;
+  height: 1.2rem;
 }
 
-.dark-theme-toggle:hover {
-  background-color: #4338ca;
+.dark-theme-toggle {
+  width: 100%;
+  text-align: center;
+  padding: 0.4rem 0.75rem;
+  border-radius: 5px;
+}
+
+.nav-links {
+  display: none;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1.5rem;
+  width: 100%;
+  padding: 5%;
+}
+
+.nav-links.open {
+  display: flex;
 }
 
 @media (max-width: 600px) {

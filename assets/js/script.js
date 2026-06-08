@@ -1,3 +1,5 @@
+
+
 const dropdownBtn = document.getElementById('dropdown-btn');
 const dropdownMenu = document.getElementById('dropdown-menu');
 
@@ -19,4 +21,13 @@ toggleButton.addEventListener('click', () => {
   const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
   document.documentElement.setAttribute('data-theme', newTheme);
   localStorage.setItem('theme', newTheme);
+});
+
+const navToggle = document.getElementById('nav-toggle');
+const navLinks = document.getElementById('nav-links');
+
+navToggle.addEventListener('click', (e) => {
+  e.stopPropagation();
+  const isOpen = navLinks.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded', isOpen);
 });
