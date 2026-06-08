@@ -38,3 +38,13 @@ navToggle.addEventListener("click", (e) => {
   const isOpen = navLinks.classList.toggle("open");
   navToggle.setAttribute("aria-expanded", isOpen);
 });
+
+// Parallax background: moves at 30% of scroll speed for a depth effect.
+// Skipped entirely for users who prefer reduced motion.
+const parallaxBg = document.getElementById("parallax-bg");
+
+if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  window.addEventListener("scroll", () => {
+    parallaxBg.style.transform = `translateY(${window.scrollY * 0.3}px)`;
+  }, { passive: true });
+}

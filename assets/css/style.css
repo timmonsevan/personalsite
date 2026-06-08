@@ -1,5 +1,5 @@
 :root {
-  --bg-color: #F0F0F0;
+  --bg-color: #f0f0f0;
   --text-color: #222;
   --link-color: #0057b8;
   --link-visited-color: #6a00b8;
@@ -8,12 +8,23 @@
 }
 
 [data-theme="dark"] {
-  --bg-color: #12161F;
-  --text-color: #F0F4F8;
+  --bg-color: #12161f;
+  --text-color: #f0f4f8;
   --link-color: #7ab8ff;
   --link-visited-color: #c39bff;
   --nav-btn-bg: #4f46e5;
   --nav-btn-bg-hover: #4338ca;
+}
+
+#parallax-bg {
+  position: fixed;
+  inset: 0;
+  background-image: url("../images/background_pic.jpeg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left;
+  z-index: -1;
+  will-change: transform;
 }
 
 body {
@@ -25,9 +36,9 @@ body {
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-size: 16px;
   line-height: 1.5;
-  background-color: var(--bg-color);
+  background-color: transparent;
   color: var(--text-color);
-  transition: background-color 0.3s, color 0.3s;
+  transition: color 0.3s;
 }
 
 a:link {
@@ -69,9 +80,9 @@ header {
 
 .body-content-container,
 .contact-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .body-content-container img {
@@ -111,7 +122,7 @@ header {
 .nav-link-btn,
 .dark-theme-toggle {
   background-color: var(--nav-btn-bg);
-  color: #F0F0F0;
+  color: #f0f0f0;
   font-size: 1rem;
   border: none;
   cursor: pointer;
@@ -127,7 +138,6 @@ header {
   border-radius: 8px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
-
 
 .dropdown-trigger:hover,
 .dark-theme-toggle:hover {
