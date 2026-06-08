@@ -67,6 +67,7 @@ a:visited {
 header {
   position: sticky;
   top: 0;
+  z-index: 10;
 }
 
 .navbar {
@@ -75,7 +76,26 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 5%;
-  background-color: var(--bg-color);
+  background: rgba(240, 240, 240, 0.55);
+  backdrop-filter: blur(4px);
+  border-radius: 0 0 12px 12px;
+}
+
+[data-theme="dark"] .navbar {
+  background: rgba(18, 22, 31, 0.55);
+}
+
+.body-content-container,
+footer {
+  background: rgba(240, 240, 240, 0.55);
+  backdrop-filter: blur(4px);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+[data-theme="dark"] .body-content-container,
+footer {
+  background: rgba(18, 22, 31, 0.55);
 }
 
 .body-content-container,
