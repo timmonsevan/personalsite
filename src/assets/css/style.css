@@ -86,7 +86,9 @@ header {
   border-radius: 0 0 12px 12px;
 }
 
-[data-theme="dark"] .navbar {
+[data-theme="dark"] .navbar,
+[data-theme="dark"] .body-content-container,
+[data-theme="dark"] footer {
   background: rgba(18, 22, 31, 0.55);
 }
 
@@ -96,11 +98,6 @@ footer {
   backdrop-filter: blur(4px);
   border-radius: 12px;
   padding: 1.5rem;
-}
-
-[data-theme="dark"] .body-content-container,
-footer {
-  background: rgba(18, 22, 31, 0.55);
 }
 
 .body-content-container,
