@@ -1,8 +1,5 @@
 import express from "express";
-
-process.on("exit", (code) => console.log("Process exiting with code:", code));
-process.on("uncaughtException", (err) => console.error("Uncaught exception:", err));
-process.on("unhandledRejection", (reason) => console.error("Unhandled rejection:", reason));
+import http from "http";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -20,6 +17,6 @@ app.get("/resume", (req, res) => {
   res.sendFile(path.join(__dirname, "../resume/index.html"));
 });
 
-app.listen(port, () => {
+http.createServer(app).listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
