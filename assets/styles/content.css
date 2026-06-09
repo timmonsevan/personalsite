@@ -1,9 +1,7 @@
-a:link {
-  color: var(--link-color);
-}
-
+a:link,
 a:visited {
-  color: var(--link-visited-color);
+  color: #f0f0f0;
+  text-decoration: none;
 }
 
 .nav-toggle {
