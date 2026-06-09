@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Evan Timmons Personal Site</title>
+    <link rel="stylesheet" href="./assets/styles/layout.css" />
+    <link rel="stylesheet" href="./assets/styles/content.css" />
+    <script>
+      const savedTheme = localStorage.getItem("theme");
+      const systemPrefersDark = window.matchMedia(
+        "(prefers-color-scheme: dark)",
+      ).matches;
+      const theme = savedTheme || (systemPrefersDark ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    </script>
+  </head>
+
+  <body>
+    <div id="parallax-bg"></div>
+    <%- include("partials/header.ejs") %>
+
+    <div class="body-content-container">
+      <h1>Hi! I'm Evan.</h1>
+      <img
+        src="./assets/images/profile_pic.jpg"
+        alt="Me on the Buckeye Trail"
+        class="profile-photo"
+        width="616"
+        height="896"
+        loading="lazy"
+      />
+      <p class="tagline">I'm a programmer.</p>
+      <p class="tagline">I'm a musician.</p>
+      <p class="bio">
+        I love to travel, to share good food, and to spend time with my family.
+      </p>
+      <p class="widget-intro">
+        I love doom metal, the blues and southern rock, to name a few genres.
+        Doom metal bands always seem to have the same few nouns making up their
+        bandnames, so I threw together a fun little bandname generator widget to
+        get the ideas flowing!
+      </p>
+      <%- include("partials/generator.ejs") %>
+      <p class="widget-intro">
+        I love playing Magic: The Gathering with my friends. The artwork on the
+        cards is what drew me into the game. Click this button to draw a random
+        MTG card and see if the art draws you in, too.
+      </p>
+      <%- include("partials/mtg_card.ejs") %>
+    </div>
+
+    <%- include("partials/footer.ejs") %>
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>

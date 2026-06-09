@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doom Bandname Generator Widget</title>
+  </head>
+  <div
+    title="Doom Bandname Generator"
+    class="content-container"
+    data-names="<%= JSON.stringify(names || []) %>"
+  >
+    <h2>Doom Bandname Generator</h2>
+    <button id="generate-btn">Generate bandname!</button>
+    <div class="bandname-container">
+      <h3 id="band-name-1"></h3>
+      <h3 id="band-name-2"></h3>
+    </div>
+  </div>
+</html>
