@@ -39,6 +39,19 @@ navToggle.addEventListener("click", (e) => {
   navToggle.setAttribute("aria-expanded", isOpen);
 });
 
+// Doom Bandname Generator
+const bandContainer = document.querySelector('[data-names]');
+const bandNames = JSON.parse(bandContainer.dataset.names);
+
+document.getElementById('generate-btn').addEventListener('click', () => {
+  if (bandNames.length === 0) return;
+  const first = bandNames[Math.floor(Math.random() * bandNames.length)];
+  const rest = bandNames.filter(n => n !== first);
+  const second = rest[Math.floor(Math.random() * rest.length)];
+  document.getElementById('band-name-1').textContent = first;
+  document.getElementById('band-name-2').textContent = second;
+});
+
 // Parallax background: moves at 30% of scroll speed for a depth effect.
 // Skipped entirely for users who prefer reduced motion.
 const parallaxBg = document.getElementById("parallax-bg");

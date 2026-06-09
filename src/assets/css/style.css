@@ -112,6 +112,12 @@ footer {
   height: auto;
 }
 
+.bandname-container {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+
 .tagline {
   font-size: 1.17em;
   font-weight: bold;
@@ -142,7 +148,8 @@ footer {
 
 .dropdown-trigger,
 .nav-link-btn,
-.dark-theme-toggle {
+.dark-theme-toggle,
+#generate-btn {
   background-color: var(--nav-btn-bg);
   color: #f0f0f0;
   font-size: 1rem;
@@ -152,7 +159,8 @@ footer {
 }
 
 .dropdown-trigger,
-.nav-link-btn {
+.nav-link-btn,
+#generate-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;

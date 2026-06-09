@@ -129,17 +129,14 @@
       <p class="bio">
         I love to travel, to share good food, and to spend time with my family.
       </p>
-      <div title="Doom Bandname Generator" class="content-container">
+      <div title="Doom Bandname Generator" class="content-container"
+           data-names="<%- JSON.stringify(names || []) %>">
         <h2>Doom Bandname Generator</h2>
-        <% if (names) { %>
-        <% const firstRandomName = names[Math.floor(Math.random() *
-        names.length)]; const names_copy = names.copy();
-        names_copy.pop(firstRandomName); %>
-        <h3><%= firstRandomName %></h3>
-        <% const secondRandomName = names_copy[ Math.floor(Math.random() *
-        names_copy.length) ]; %>
-        <h3><%= secondRandomName %></h3>
-        <% } %>
+        <button id="generate-btn">Generate bandname!</button>
+        <div class="bandname-container">
+          <h3 id="band-name-1"></h3>
+          <h3 id="band-name-2"></h3>
+        </div>
       </div>
     </div>
 
