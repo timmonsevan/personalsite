@@ -1,8 +1,6 @@
 :root {
   --bg-color: #f0f0f0;
   --text-color: #222;
-  --link-color: #0057b8;
-  --link-visited-color: #6a00b8;
   --nav-btn-bg: #6f67ab;
   --nav-btn-bg-hover: #5d5693;
 }
@@ -10,8 +8,6 @@
 [data-theme="dark"] {
   --bg-color: #12161f;
   --text-color: #f0f4f8;
-  --link-color: #7ab8ff;
-  --link-visited-color: #c39bff;
   --nav-btn-bg: #4f46e5;
   --nav-btn-bg-hover: #4338ca;
 }
