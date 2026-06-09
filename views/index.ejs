@@ -35,18 +35,7 @@
       <p class="bio">
         I love to travel, to share good food, and to spend time with my family.
       </p>
-      <div
-        title="Doom Bandname Generator"
-        class="content-container"
-        data-names="<%= JSON.stringify(names || []) %>"
-      >
-        <h2>Doom Bandname Generator</h2>
-        <button id="generate-btn">Generate bandname!</button>
-        <div class="bandname-container">
-          <h3 id="band-name-1"></h3>
-          <h3 id="band-name-2"></h3>
-        </div>
-      </div>
+      <%- include("partials/generator.ejs") %>
     </div>
 
     <%- include("partials/footer.ejs") %>
