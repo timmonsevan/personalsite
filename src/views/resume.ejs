@@ -16,9 +16,8 @@
   </head>
 
   <body>
-    <header>
-      <h1>Evan Timmons</h1>
-    </header>
+    <%- include("partials/header.ejs") %>
+
     <main>
       <ul>
         <li title="Summary">
@@ -178,24 +177,6 @@
       </ul>
     </main>
 
-    <footer>
-      <h2 title="Contact Info">Contact Information</h2>
-      <div class="contact">
-        <h5>Location: Centerville, OH</h5>
-        <h5>Phone: 937-674-1033</h5>
-        <h5>Email: timmonsevan@gmail.com</h5>
-        <h5>
-          <a href="https://www.linkedin.com/in/timmonsevan/" target="_blank"
-            >LinkedIn</a
-          >
-        </h5>
-        <h5>
-          <a href="https://www.github.com/timmonsevan" target="_blank"
-            >GitHub</a
-          >
-        </h5>
-      </div>
-      <a class="btn-home" href="../index.html">Home</a>
-    </footer>
+    <%- include("partials/footer.ejs") %>
   </body>
 </html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Header Partial</title>
+    <link rel="stylesheet" href="/assets/css/style.css" />
+  </head>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Evan Timmons</div>
+      <button
+        id="nav-toggle"
+        class="nav-toggle"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+      >
+        &#9776;
+      </button>
+      <div id="nav-links" class="nav-links">
+        <div class="home">
+          <button class="nav-link-btn">
+            <img
+              src="/assets/images/home_app_icon.png"
+              alt="Home Icon"
+              class="icon"
+              width="200"
+              height="200"
+            />
+            <a href="/">Home</a>
+          </button>
+        </div>
+        <div class="resume">
+          <button class="nav-link-btn">
+            <img
+              src="/assets/images/document_app_icon.png"
+              alt="Document Icon"
+              class="icon"
+              width="200"
+              height="200"
+            />
+            <a href="/resume">Resume</a>
+          </button>
+        </div>
+        <div class="linkedin">
+          <button class="nav-link-btn">
+            <img
+              src="/assets/images/linkedin_app_icon.png"
+              alt="LinkedIn Icon"
+              class="icon"
+              width="200"
+              height="200"
+            />
+            <a href="https://www.linkedin.com/in/timmonsevan/" target="_blank">
+              LinkedIn
+            </a>
+          </button>
+        </div>
+        <div class="github">
+          <button class="nav-link-btn">
+            <img
+              src="/assets/images/github_app_icon.png"
+              alt="GitHub Icon"
+              class="icon"
+              width="200"
+              height="200"
+            />
+            <a href="https://www.github.com/timmonsevan" target="_blank">
+              GitHub
+            </a>
+          </button>
+        </div>
+        <div class="settings-dropdown">
+          <button
+            id="dropdown-btn"
+            class="dropdown-trigger"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <img
+              src="/assets/images/settings_app_icon.png"
+              alt="Settings Icon"
+              class="icon"
+              width="2295"
+              height="2295"
+            />
+            Settings &#9662;
+          </button>
+          <div id="dropdown-menu" class="dropdown-menu">
+            <button
+              id="theme-toggle"
+              aria-label="Toggle dark mode"
+              class="dark-theme-toggle"
+            >
+              Switch Theme
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+</html>
