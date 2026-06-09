@@ -17,102 +17,7 @@
 
   <body>
     <div id="parallax-bg"></div>
-    <header>
-      <nav class="navbar">
-        <div class="logo">Evan Timmons</div>
-        <button
-          id="nav-toggle"
-          class="nav-toggle"
-          aria-label="Toggle navigation"
-          aria-expanded="false"
-        >
-          &#9776;
-        </button>
-        <div id="nav-links" class="nav-links">
-          <div class="home">
-            <button class="nav-link-btn">
-              <img
-                src="./assets/images/home_app_icon.png"
-                alt="Home Icon"
-                class="icon"
-                width="200"
-                height="200"
-              />
-              <a href="./index.html">Home</a>
-            </button>
-          </div>
-          <div class="resume">
-            <button class="nav-link-btn">
-              <img
-                src="./assets/images/document_app_icon.png"
-                alt="Document Icon"
-                class="icon"
-                width="200"
-                height="200"
-              />
-              <a href="./resume/index.html">Resume</a>
-            </button>
-          </div>
-          <div class="linkedin">
-            <button class="nav-link-btn">
-              <img
-                src="./assets/images/linkedin_app_icon.png"
-                alt="LinkedIn Icon"
-                class="icon"
-                width="200"
-                height="200"
-              />
-              <a
-                href="https://www.linkedin.com/in/timmonsevan/"
-                target="_blank"
-              >
-                LinkedIn
-              </a>
-            </button>
-          </div>
-          <div class="github">
-            <button class="nav-link-btn">
-              <img
-                src="./assets/images/github_app_icon.png"
-                alt="GitHub Icon"
-                class="icon"
-                width="200"
-                height="200"
-              />
-              <a href="https://www.github.com/timmonsevan" target="_blank">
-                GitHub
-              </a>
-            </button>
-          </div>
-          <div class="settings-dropdown">
-            <button
-              id="dropdown-btn"
-              class="dropdown-trigger"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              <img
-                src="./assets/images/settings_app_icon.png"
-                alt="Settings Icon"
-                class="icon"
-                width="2295"
-                height="2295"
-              />
-              Settings &#9662;
-            </button>
-            <div id="dropdown-menu" class="dropdown-menu">
-              <button
-                id="theme-toggle"
-                aria-label="Toggle dark mode"
-                class="dark-theme-toggle"
-              >
-                Switch Theme
-              </button>
-            </div>
-          </div>
-        </div>
-      </nav>
-    </header>
+    <%- include("partials/header.ejs") %>
 
     <div class="body-content-container">
       <h1>Hi! I'm Evan.</h1>
@@ -129,8 +34,11 @@
       <p class="bio">
         I love to travel, to share good food, and to spend time with my family.
       </p>
-      <div title="Doom Bandname Generator" class="content-container"
-           data-names="<%- JSON.stringify(names || []) %>">
+      <div
+        title="Doom Bandname Generator"
+        class="content-container"
+        data-names="<%= JSON.stringify(names || []) %>"
+      >
         <h2>Doom Bandname Generator</h2>
         <button id="generate-btn">Generate bandname!</button>
         <div class="bandname-container">
@@ -140,14 +48,7 @@
       </div>
     </div>
 
-    <footer>
-      <h2 title="Contact Info" class="contact-header">Contact Information</h2>
-      <div class="contact">
-        <p>Location: Centerville, OH</p>
-        <p>Phone: 937-674-1033</p>
-        <p>Email: timmonsevan@gmail.com</p>
-      </div>
-    </footer>
+    <%- include("partials/footer.ejs") %>
     <script src="./assets/js/script.js"></script>
   </body>
 </html>

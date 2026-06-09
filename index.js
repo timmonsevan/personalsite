@@ -20,7 +20,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/resume", (req, res) => {
-  res.sendFile(path.join(__dirname, "resume/index.html"));
+  res.render("resume");
 });
 
 http.createServer(app).listen(port, "0.0.0.0", () => {
