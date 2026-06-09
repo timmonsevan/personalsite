@@ -21,11 +21,19 @@ document.addEventListener("click", () => {
 // survives page reloads.
 const toggleButton = document.getElementById("theme-toggle");
 
+function updateThemeLabel() {
+  const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+  toggleButton.textContent = isDark ? "Light Mode" : "Dark Mode";
+}
+
+updateThemeLabel();
+
 toggleButton.addEventListener("click", () => {
   const currentTheme = document.documentElement.getAttribute("data-theme");
   const newTheme = currentTheme === "dark" ? "light" : "dark";
   document.documentElement.setAttribute("data-theme", newTheme);
   localStorage.setItem("theme", newTheme);
+  updateThemeLabel();
 });
 
 // Mobile nav menu toggle, mirroring the dropdown's open/aria-expanded pattern.
