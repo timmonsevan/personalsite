@@ -97,6 +97,10 @@ footer {
   justify-content: center;
 }
 
+.content-container h2 {
+  text-align: center;
+}
+
 .contact {
   display: flex;
   gap: 3%;
