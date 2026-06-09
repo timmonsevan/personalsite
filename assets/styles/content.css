@@ -89,14 +89,18 @@ a:visited {
   height: 2.6rem;
 }
 
+.body-content-container h1 {
+  font-size: 2.5rem;
+}
+
 .tagline {
-  font-size: 1.17em;
+  font-size: 1.5em;
   font-weight: bold;
   margin: 1em 0;
 }
 
 .bio {
-  font-size: 0.83em;
+  font-size: 1em;
   margin: 1.67em 0;
 }
 
