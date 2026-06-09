@@ -115,6 +115,13 @@ a:visited {
   margin: 1.67em 0;
 }
 
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
 #mtg-card-display {
   padding: 3%;
 }
