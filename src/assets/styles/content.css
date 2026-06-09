@@ -24,7 +24,8 @@ a:visited {
 .dropdown-trigger,
 .nav-link-btn,
 .dark-theme-toggle,
-#generate-btn {
+#generate-btn,
+#mtg-card-btn {
   background-color: var(--nav-btn-bg);
   color: #f0f0f0;
   font-size: 1rem;
@@ -35,7 +36,8 @@ a:visited {
 
 .dropdown-trigger,
 .nav-link-btn,
-#generate-btn {
+#generate-btn,
+#mtg-card-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
@@ -101,9 +103,19 @@ a:visited {
   margin: 1.67em 0;
 }
 
+.widget-intro {
+  font-size: 0.83em;
+  margin: 1.67em 0;
+  text-align: center;
+}
+
 .contact p {
   font-size: 0.83em;
   margin: 1.67em 0;
+}
+
+#mtg-card-display {
+  padding: 3%;
 }
 
 @media (prefers-reduced-motion: reduce) {
