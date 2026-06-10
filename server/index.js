@@ -17,7 +17,7 @@ const mtg_api_call = {
 };
 const PORT = process.env.PORT || 3000;
 const CLIENT_ORIGIN =
-  process.env.CLIENT_ORIGIN || "https://your-react-app.onrender.com";
+  process.env.CLIENT_ORIGIN || "https://personalsite-aclx.onrender.com";
 
 app.use(cors({ origin: CLIENT_ORIGIN }));
 
