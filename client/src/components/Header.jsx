@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './Header.css'
 import homeIcon from '../assets/icons/home_app_icon.png'
 import documentIcon from '../assets/icons/document_app_icon.png'
@@ -27,7 +28,7 @@ function Header() {
                 width="200"
                 height="200"
               />
-              <a href="/">Home</a>
+              <Link to="/">Home</Link>
             </button>
           </div>
           <div className="resume">
@@ -39,7 +40,7 @@ function Header() {
                 width="200"
                 height="200"
               />
-              <a href="/resume">Resume</a>
+              <Link to="/resume">Resume</Link>
             </button>
           </div>
           <div className="linkedin">
