@@ -4,6 +4,7 @@ import http from "http";
 import https from "https";
 import axios from "axios";
 import path from "path";
+import cors from "cors";
 import { fileURLToPath } from "url";
 import { error } from "console";
 
@@ -14,7 +15,10 @@ const mtg_api_call = {
   path: "/cards/random",
   method: "GET",
 };
-const port = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
+const CLIENT_ORIGIN = process.env.CLIENT_ORIGIN || "https://your-react-app.onrender.com";
+
+app.use(cors({ origin: CLIENT_ORIGIN }));
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -43,6 +47,6 @@ app.get("/resume", (req, res) => {
   res.render("resume");
 });
 
-http.createServer(app).listen(port, "0.0.0.0", () => {
-  console.log(`Server running on port ${port}`);
+http.createServer(app).listen(PORT, "0.0.0.0", () => {
+  console.log(`Server running on port ${PORT}`);
 });
