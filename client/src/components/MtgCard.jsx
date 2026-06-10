@@ -10,7 +10,9 @@ function MtgCard() {
   const handleClick = async () => {
     setLoading(true);
     try {
-      const res = await fetch("/api/mtg-random-card");
+      const res = await fetch(
+        `${import.meta.env.VITE_API_URL ?? ""}/api/mtg-random-card`
+      );
       const data = await res.json();
       if (data.imageUrl) {
         setImageUrl(data.imageUrl);
