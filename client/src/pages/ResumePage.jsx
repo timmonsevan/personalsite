@@ -1,0 +1,166 @@
+import "./ResumePage.css";
+
+function ResumePage() {
+  return (
+    <div>
+      <ul>
+        <li title="Summary">
+          <h2>Summary</h2>
+          <p>
+            Software Developer with experience delivering production-grade
+            desktop applications in aerospace simulation environments, with a
+            full-stack skill set spanning Python, Java, JavaScript, and C#.
+          </p>
+        </li>
+
+        <li title="Experience">
+          <h2>Professional Experience and Projects</h2>
+          <ul>
+            <li title="Wright State University">
+              <h3>Wright State University</h3>
+              <h4>Raider Immersion Program Software Developer Intern</h4>
+              <h5>
+                Wright State University-sponsored project with Booz Allen
+                Hamilton
+              </h5>
+              <h5>December 2025 - Present</h5>
+              <ul>
+                <li className="bah">
+                  Supported Booz Allen Hamilton's missile modeling and
+                  simulation team to develop and analyze dynamic and kinematic
+                  models of missiles and aircraft systems
+                </li>
+                <li className="bah">
+                  Developed a user-friendly workflow and graphical interface
+                  that integrates with an open-source software API to verify
+                  program input and validate program output
+                </li>
+                <li className="bah">
+                  Built a desktop GUI application in PySide6 (Qt) for
+                  aerodynamics modeling, implementing MVC architecture with
+                  undo/redo command stacks and a dynamic unit conversion system
+                </li>
+                <li className="bah">
+                  Collaborated with a multidisciplinary team to ensure
+                  completion of delegated milestones, participated in standups
+                  to report progress and perform technical reviews
+                </li>
+              </ul>
+            </li>
+
+            <li title="Winsupply Project">
+              <h3>Wright State University and Winsupply Inc</h3>
+              <h4>GamerMatch Web API</h4>
+              <h5>
+                Wright State University class taught by Winsupply Dev Team
+              </h5>
+              <h5>August 2025 - December 2025</h5>
+              <ul>
+                <li>
+                  <p>
+                    Drafted, designed and implemented a matching application (a
+                    la dating application like Bumble, Hinge) to match two
+                    like-minded video-gamers
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Designed UI/UX wireframes with Figma, database
+                    implementation with MariaDB/MySQL, back-end API developed
+                    using Java/Spring Boot, and front-end interface using
+                    Angular
+                  </p>
+                </li>
+              </ul>
+            </li>
+
+            <li title="Maverick's">
+              <h3>Maverick's Cards and Comics</h3>
+              <h4>Inventory Manager/Customer Service Representative</h4>
+              <h5>August 2021 - April 2025</h5>
+              <p>
+                Managed inventory systems and provided customer service in a
+                fast-paced retail environment
+              </p>
+            </li>
+
+            <li title="MIT">
+              <h3>Miami Industrial Trucks</h3>
+              <h4>Tire Press Operator/Inventory Specialist</h4>
+              <h5>June 2018 - January 2021</h5>
+              <p>
+                Operated industrial tire press equipment, provided mobile
+                service and managed parts inventory
+              </p>
+            </li>
+
+            <li title="Heartland Pharmacy">
+              <h3>Heartland Pharmacy</h3>
+              <h4>Pharmacy Technician/Inventory Manager</h4>
+              <h5>January 2016 - May 2018</h5>
+              <p>
+                Supported daily pharmacy operations including prescription
+                processing, inventory management, and customer service
+              </p>
+            </li>
+          </ul>
+        </li>
+
+        <li title="Education">
+          <h2>Education</h2>
+          <ul>
+            <li title="WSU">
+              <h3>Wright State University</h3>
+              <h4>Bachelor of Arts in Computer Science</h4>
+              <h5>August 2024 - May 2026</h5>
+            </li>
+            <li title="SCC">
+              <h3>Sinclair Community College</h3>
+              <h4>Associate of Applied Science in Software Development</h4>
+              <h5>August 2022 - December 2023</h5>
+            </li>
+          </ul>
+        </li>
+
+        <li title="Skills">
+          <h2>Core Competencies</h2>
+          <div className="skilltbl">
+            <table>
+              <tr>
+                <td>Java / Spring Boot</td>
+                <td>Database Design</td>
+                <td>Git / GitHub</td>
+              </tr>
+
+              <tr>
+                <td>Python / Flask</td>
+                <td>SQL / MySQL</td>
+                <td>Docker</td>
+              </tr>
+
+              <tr>
+                <td>C# / .NET</td>
+                <td>Unit Testing</td>
+                <td>AWS</td>
+              </tr>
+
+              <tr>
+                <td className="js">JavaScript / Angular / React / Node</td>
+                <td className="tdd">Test Driven Development</td>
+                <td>Ubuntu Linux</td>
+              </tr>
+
+              <tr>
+                <td>C / C++</td>
+                <td>Junit/pytest</td>
+                <td>Code Review</td>
+              </tr>
+            </table>
+          </div>
+        </li>
+      </ul>
+    </div>
+  );
+}
+
+export default ResumePage;

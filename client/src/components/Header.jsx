@@ -1,4 +1,9 @@
 import './Header.css'
+import homeIcon from '../assets/icons/home_app_icon.png'
+import documentIcon from '../assets/icons/document_app_icon.png'
+import linkedinIcon from '../assets/icons/linkedin_app_icon.png'
+import githubIcon from '../assets/icons/github_app_icon.png'
+import settingsIcon from '../assets/icons/settings_app_icon.png'
 
 function Header() {
   return (
@@ -16,7 +21,7 @@ function Header() {
           <div className="home">
             <button className="btn-accent nav-link-btn">
               <img
-                src="/assets/images/home_app_icon.png"
+                src={homeIcon}
                 alt="Home Icon"
                 className="icon"
                 width="200"
@@ -28,7 +33,7 @@ function Header() {
           <div className="resume">
             <button className="btn-accent nav-link-btn">
               <img
-                src="/assets/images/document_app_icon.png"
+                src={documentIcon}
                 alt="Document Icon"
                 className="icon"
                 width="200"
@@ -40,7 +45,7 @@ function Header() {
           <div className="linkedin">
             <button className="btn-accent nav-link-btn">
               <img
-                src="/assets/images/linkedin_app_icon.png"
+                src={linkedinIcon}
                 alt="LinkedIn Icon"
                 className="icon"
                 width="200"
@@ -58,7 +63,7 @@ function Header() {
           <div className="github">
             <button className="btn-accent nav-link-btn">
               <img
-                src="/assets/images/github_app_icon.png"
+                src={githubIcon}
                 alt="GitHub Icon"
                 className="icon"
                 width="200"
@@ -80,7 +85,7 @@ function Header() {
               aria-expanded="false"
             >
               <img
-                src="/assets/images/settings_app_icon.png"
+                src={settingsIcon}
                 alt="Settings Icon"
                 className="icon"
                 width="2295"
