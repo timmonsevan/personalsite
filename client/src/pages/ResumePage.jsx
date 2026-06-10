@@ -1,26 +1,8 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Evan Timmons Resume</title>
-    <link rel="stylesheet" href="./assets/styles/layout.css" />
-    <link rel="stylesheet" href="./assets/styles/content.css" />
-    <link rel="stylesheet" href="./assets/styles/resume.css" />
-    <script>
-      const savedTheme = localStorage.getItem("theme");
-      const systemPrefersDark = window.matchMedia(
-        "(prefers-color-scheme: dark)",
-      ).matches;
-      const theme = savedTheme || (systemPrefersDark ? "dark" : "light");
-      document.documentElement.setAttribute("data-theme", theme);
-    </script>
-  </head>
+import "./ResumePage.css";
 
-  <body>
-    <%- include("partials/header.ejs") %>
-
-    <main>
+function ResumePage() {
+  return (
+    <div>
       <ul>
         <li title="Summary">
           <h2>Summary</h2>
@@ -43,22 +25,22 @@
               </h5>
               <h5>December 2025 - Present</h5>
               <ul>
-                <li class="bah">
+                <li className="bah">
                   Supported Booz Allen Hamilton's missile modeling and
                   simulation team to develop and analyze dynamic and kinematic
                   models of missiles and aircraft systems
                 </li>
-                <li class="bah">
+                <li className="bah">
                   Developed a user-friendly workflow and graphical interface
                   that integrates with an open-source software API to verify
                   program input and validate program output
                 </li>
-                <li class="bah">
+                <li className="bah">
                   Built a desktop GUI application in PySide6 (Qt) for
                   aerodynamics modeling, implementing MVC architecture with
                   undo/redo command stacks and a dynamic unit conversion system
                 </li>
-                <li class="bah">
+                <li className="bah">
                   Collaborated with a multidisciplinary team to ensure
                   completion of delegated milestones, participated in standups
                   to report progress and perform technical reviews
@@ -142,7 +124,7 @@
 
         <li title="Skills">
           <h2>Core Competencies</h2>
-          <div class="skilltbl">
+          <div className="skilltbl">
             <table>
               <tr>
                 <td>Java / Spring Boot</td>
@@ -163,8 +145,8 @@
               </tr>
 
               <tr>
-                <td class="js">JavaScript / Angular / React / Node</td>
-                <td class="tdd">Test Driven Development</td>
+                <td className="js">JavaScript / Angular / React / Node</td>
+                <td className="tdd">Test Driven Development</td>
                 <td>Ubuntu Linux</td>
               </tr>
 
@@ -177,9 +159,8 @@
           </div>
         </li>
       </ul>
-    </main>
+    </div>
+  );
+}
 
-    <%- include("partials/footer.ejs") %>
-    <script src="./assets/js/script.js"></script>
-  </body>
-</html>
+export default ResumePage;

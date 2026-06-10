@@ -1,0 +1,169 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  color-scheme: light dark;
+
+  --bg-color: #f0f0f0;
+  --text-color: #222;
+  --muted-color: #555;
+  --border-color: #ccc;
+  --nav-btn-bg: #6f67ab;
+  --nav-btn-bg-hover: #5d5693;
+}
+
+[data-theme="dark"] {
+  --bg-color: #12161f;
+  --text-color: #f0f4f8;
+  --muted-color: #aab4c2;
+  --border-color: #3a4150;
+  --nav-btn-bg: #4f46e5;
+  --nav-btn-bg-hover: #4338ca;
+}
+
+html,
+body {
+  background-color: var(--bg-color);
+}
+
+body {
+  margin: 0 auto;
+  padding: 2rem;
+  max-width: 900px;
+  font-family:
+    "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-color);
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+}
+
+h2 {
+  font-size: 1.2rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+h3 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 0.95rem;
+  font-style: italic;
+  font-weight: normal;
+}
+
+h5 {
+  font-size: 0.85rem;
+  font-weight: normal;
+  color: var(--muted-color);
+}
+
+/* "Frosted glass" panel shared by the main content area and the footer */
+.panel {
+  background: rgba(240, 240, 240, 0.55);
+  backdrop-filter: blur(4px);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+[data-theme="dark"] .panel {
+  background: rgba(18, 22, 31, 0.55);
+}
+
+/* Accent button shared by nav buttons and widget action buttons */
+.btn-accent {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.9rem;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--nav-btn-bg);
+  color: #f0f0f0;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s ease;
+}
+
+.btn-accent:hover {
+  background-color: var(--nav-btn-bg-hover);
+}
+
+/* Centered widget layout shared by the bandname generator and MTG card */
+.content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content-container h2 {
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 1.25rem;
+    font-size: 15px;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 0.75rem;
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 1.3rem;
+  }
+}
+
+@media print {
+  body {
+    padding: 0;
+    font-size: 12pt;
+  }
+
+  @page {
+    margin: 0.75in;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}

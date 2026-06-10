@@ -1,0 +1,48 @@
+table {
+  border-collapse: collapse;
+  border: none;
+  margin: 0 auto;
+  width: 100%;
+  table-layout: auto;
+}
+
+table td,
+table th {
+  border: none;
+  text-align: center;
+  padding: 0.1rem 1.5rem;
+  font-size: 0.85rem;
+  color: var(--muted-color);
+  white-space: nowrap;
+}
+
+.skilltbl {
+  display: flex;
+  padding: 0.5rem 0rem;
+}
+
+.js,
+.tdd {
+  font-size: 0.72rem;
+}
+
+.bah {
+  margin-bottom: 3%;
+}
+
+@media (max-width: 768px) {
+  table td,
+  table th {
+    padding: 0.1rem 0.75rem;
+    white-space: normal;
+  }
+}
+
+@media (max-width: 480px) {
+  table td,
+  table th {
+    padding: 0.2rem 0.4rem;
+    font-size: 0.75rem;
+    white-space: normal;
+  }
+}

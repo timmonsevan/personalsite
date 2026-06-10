@@ -1,0 +1,11 @@
+#parallax-bg {
+  position: fixed;
+  inset: 0;
+  background-color: var(--bg-color);
+  background-image: url("/assets/images/background_pic.jpeg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left;
+  z-index: -1;
+  will-change: transform;
+}

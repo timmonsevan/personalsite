@@ -1,0 +1,38 @@
+.body-content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.body-content-container img {
+  max-width: 100%;
+  height: auto;
+}
+
+.body-content-container h1 {
+  font-size: 2.5rem;
+}
+
+.tagline {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 1em 0;
+}
+
+.bio {
+  font-size: 1em;
+  margin: 1.67em 0;
+}
+
+.widget-intro {
+  font-size: 0.83em;
+  margin: 1.67em 0;
+  text-align: center;
+}
+
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
