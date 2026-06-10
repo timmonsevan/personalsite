@@ -16,19 +16,12 @@ const mtg_api_call = {
   method: "GET",
 };
 const PORT = process.env.PORT || 3000;
-const CLIENT_ORIGIN = process.env.CLIENT_ORIGIN || "https://your-react-app.onrender.com";
+const CLIENT_ORIGIN =
+  process.env.CLIENT_ORIGIN || "https://your-react-app.onrender.com";
 
 app.use(cors({ origin: CLIENT_ORIGIN }));
 
-app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "views"));
-
 app.use(morgan("tiny"));
-app.use(express.static(__dirname));
-
-app.get("/", (req, res) => {
-  res.render("index");
-});
 
 app.get("/api/mtg-random-card", async (req, res) => {
   try {
@@ -41,10 +34,6 @@ app.get("/api/mtg-random-card", async (req, res) => {
   } catch (err) {
     res.status(500).json({ error: "Failed to fetch card" });
   }
-});
-
-app.get("/resume", (req, res) => {
-  res.render("resume");
 });
 
 http.createServer(app).listen(PORT, "0.0.0.0", () => {
