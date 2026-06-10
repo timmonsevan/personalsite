@@ -16,10 +16,14 @@ const mtg_api_call = {
   method: "GET",
 };
 const PORT = process.env.PORT || 3000;
-const CLIENT_ORIGIN =
-  process.env.CLIENT_ORIGIN || "https://personalsite-aclx.onrender.com";
+const CLIENT_ORIGINS = (
+  process.env.CLIENT_ORIGIN ||
+  "https://personalsite-aclx.onrender.com,https://www.evantimmons.space,https://evantimmons.space"
+)
+  .split(",")
+  .map((origin) => origin.trim());
 
-app.use(cors({ origin: CLIENT_ORIGIN }));
+app.use(cors({ origin: CLIENT_ORIGINS }));
 
 app.use(morgan("tiny"));
 
