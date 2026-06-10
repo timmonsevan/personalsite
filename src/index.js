@@ -33,7 +33,8 @@ app.get("/api/mtg-random-card", async (req, res) => {
     const imageUrl =
       response.data.image_uris?.normal ??
       response.data.card_faces?.[0]?.image_uris?.normal;
-    res.json({ imageUrl });
+    const name = response.data.name;
+    res.json({ imageUrl, name });
   } catch (err) {
     res.status(500).json({ error: "Failed to fetch card" });
   }
