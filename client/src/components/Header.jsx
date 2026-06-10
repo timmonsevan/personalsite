@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useEffect, useRef, useState } from 'react'
 import './Header.css'
 import homeIcon from '../assets/icons/home_app_icon.png'
 import documentIcon from '../assets/icons/document_app_icon.png'
@@ -7,6 +8,32 @@ import githubIcon from '../assets/icons/github_app_icon.png'
 import settingsIcon from '../assets/icons/settings_app_icon.png'
 
 function Header() {
+  const [isNavOpen, setIsNavOpen] = useState(false)
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const [theme, setTheme] = useState(() => {
+    const savedTheme = localStorage.getItem('theme')
+    const systemPrefersDark = window.matchMedia(
+      '(prefers-color-scheme: dark)',
+    ).matches
+    return savedTheme || (systemPrefersDark ? 'dark' : 'light')
+  })
+  const dropdownRef = useRef(null)
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme)
+    localStorage.setItem('theme', theme)
+  }, [theme])
+
+  useEffect(() => {
+    function handleClickOutside(e) {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setIsDropdownOpen(false)
+      }
+    }
+    document.addEventListener('click', handleClickOutside)
+    return () => document.removeEventListener('click', handleClickOutside)
+  }, [])
+
   return (
     <header>
       <nav className="navbar">
@@ -14,11 +41,12 @@ function Header() {
         <button
           className="nav-toggle"
           aria-label="Toggle navigation"
-          aria-expanded="false"
+          aria-expanded={isNavOpen}
+          onClick={() => setIsNavOpen((open) => !open)}
         >
           ☰
         </button>
-        <div className="nav-links">
+        <div className={`nav-links${isNavOpen ? ' open' : ''}`}>
           <div className="home">
             <button className="btn-accent nav-link-btn">
               <img
@@ -79,11 +107,12 @@ function Header() {
               </a>
             </button>
           </div>
-          <div className="settings-dropdown">
+          <div className="settings-dropdown" ref={dropdownRef}>
             <button
               className="btn-accent dropdown-trigger"
               aria-haspopup="true"
-              aria-expanded="false"
+              aria-expanded={isDropdownOpen}
+              onClick={() => setIsDropdownOpen((open) => !open)}
             >
               <img
                 src={settingsIcon}
@@ -94,12 +123,15 @@ function Header() {
               />
               Settings ▾
             </button>
-            <div className="dropdown-menu">
+            <div className={`dropdown-menu${isDropdownOpen ? ' open' : ''}`}>
               <button
                 className="btn-accent dark-theme-toggle"
                 aria-label="Toggle dark mode"
+                onClick={() =>
+                  setTheme((current) => (current === 'dark' ? 'light' : 'dark'))
+                }
               >
-                Dark Mode
+                {theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
               </button>
             </div>
           </div>

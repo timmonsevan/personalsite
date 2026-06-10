@@ -5,7 +5,6 @@ import https from "https";
 import axios from "axios";
 import path from "path";
 import { fileURLToPath } from "url";
-import names from "./data/names.json" with { type: "json" };
 import { error } from "console";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -24,7 +23,7 @@ app.use(morgan("tiny"));
 app.use(express.static(__dirname));
 
 app.get("/", (req, res) => {
-  res.render("index", { names });
+  res.render("index");
 });
 
 app.get("/api/mtg-random-card", async (req, res) => {

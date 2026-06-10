@@ -15,17 +15,13 @@
   --nav-btn-bg-hover: #5d5693;
 }
 
-/* Theme toggle isn't wired up yet (it was JS-driven via [data-theme]),
-   so fall back to the OS preference until that's reintroduced. */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg-color: #12161f;
-    --text-color: #f0f4f8;
-    --muted-color: #aab4c2;
-    --border-color: #3a4150;
-    --nav-btn-bg: #4f46e5;
-    --nav-btn-bg-hover: #4338ca;
-  }
+[data-theme="dark"] {
+  --bg-color: #12161f;
+  --text-color: #f0f4f8;
+  --muted-color: #aab4c2;
+  --border-color: #3a4150;
+  --nav-btn-bg: #4f46e5;
+  --nav-btn-bg-hover: #4338ca;
 }
 
 html,
@@ -90,10 +86,8 @@ h5 {
   padding: 1.5rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  .panel {
-    background: rgba(18, 22, 31, 0.55);
-  }
+[data-theme="dark"] .panel {
+  background: rgba(18, 22, 31, 0.55);
 }
 
 /* Accent button shared by nav buttons and widget action buttons */

@@ -15,10 +15,8 @@ header {
   border-radius: 0 0 12px 12px;
 }
 
-@media (prefers-color-scheme: dark) {
-  .navbar {
-    background: rgba(18, 22, 31, 0.55);
-  }
+[data-theme="dark"] .navbar {
+  background: rgba(18, 22, 31, 0.55);
 }
 
 .nav-toggle {
