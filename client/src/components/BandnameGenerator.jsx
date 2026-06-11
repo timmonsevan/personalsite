@@ -16,6 +16,7 @@ function getRandomBandName(names) {
 
 function BandnameGenerator() {
   const [bandName, setBandName] = useState(["", ""]);
+
   const handleClick = () => {
     setBandName(getRandomBandName(names));
   };
