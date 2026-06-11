@@ -7,6 +7,7 @@ function MtgCard() {
   const [loading, setLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+
   const handleClick = async () => {
     setLoading(true);
     try {

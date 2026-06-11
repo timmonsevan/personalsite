@@ -8,8 +8,10 @@ import githubIcon from "../assets/icons/github_app_icon.png";
 import settingsIcon from "../assets/icons/settings_app_icon.png";
 
 function Header() {
+  const dropdownRef = useRef(null);
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
   const [theme, setTheme] = useState(() => {
     const savedTheme = localStorage.getItem("theme");
     const systemPrefersDark = window.matchMedia(
@@ -17,7 +19,6 @@ function Header() {
     ).matches;
     return savedTheme || (systemPrefersDark ? "dark" : "light");
   });
-  const dropdownRef = useRef(null);
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
