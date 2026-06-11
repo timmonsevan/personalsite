@@ -27,7 +27,7 @@ function ClockWidget() {
             data.seconds,
           ),
         );
-        setTimeZone(data.timeZone);
+        setTimeZone(data.timeZone.replace(/_/g, " "));
 
         intervalId = setInterval(() => {
           setTime((current) => new Date(current.getTime() + 1000));
