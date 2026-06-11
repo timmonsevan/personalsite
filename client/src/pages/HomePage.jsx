@@ -4,7 +4,7 @@ import MtgCard from "../components/MtgCard";
 
 function HomePage() {
   return (
-    <div className="body-content-container panel">
+    <div id="home-page" className="panel">
       <h1>Hi! I'm Evan.</h1>
       <img
         src="/assets/images/profile_pic.jpg"

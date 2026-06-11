@@ -10,13 +10,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 5%;
-  background: rgba(240, 240, 240, 0.55);
-  backdrop-filter: blur(4px);
   border-radius: 0 0 12px 12px;
-}
-
-[data-theme="dark"] .navbar {
-  background: rgba(18, 22, 31, 0.55);
 }
 
 .nav-toggle {

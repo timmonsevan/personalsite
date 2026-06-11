@@ -1,4 +1,4 @@
-import './Footer.css'
+import "./Footer.css";
 
 function Footer() {
   return (
@@ -12,7 +12,7 @@ function Footer() {
         <p>Email: timmonsevan@gmail.com</p>
       </div>
     </footer>
-  )
+  );
 }
 
-export default Footer
+export default Footer;
