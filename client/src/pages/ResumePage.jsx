@@ -2,7 +2,7 @@ import "./ResumePage.css";
 
 function ResumePage() {
   return (
-    <div>
+    <div id="resume-page" className="panel">
       <ul>
         <li title="Summary">
           <h2>Summary</h2>

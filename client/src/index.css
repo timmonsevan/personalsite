@@ -24,7 +24,6 @@
   --nav-btn-bg-hover: #4338ca;
 }
 
-html,
 body {
   background-color: var(--bg-color);
 }
@@ -78,16 +77,16 @@ h5 {
   color: var(--muted-color);
 }
 
-/* "Frosted glass" panel shared by the main content area and the footer */
+/* "Frosted glass" panel shared by the header, footer, and page content */
 .panel {
-  background: rgba(240, 240, 240, 0.55);
+  background: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(4px);
   border-radius: 12px;
   padding: 1.5rem;
 }
 
 [data-theme="dark"] .panel {
-  background: rgba(18, 22, 31, 0.55);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 /* Accent button shared by nav buttons and widget action buttons */

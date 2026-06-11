@@ -1,42 +1,42 @@
-import { Link } from 'react-router-dom'
-import { useEffect, useRef, useState } from 'react'
-import './Header.css'
-import homeIcon from '../assets/icons/home_app_icon.png'
-import documentIcon from '../assets/icons/document_app_icon.png'
-import linkedinIcon from '../assets/icons/linkedin_app_icon.png'
-import githubIcon from '../assets/icons/github_app_icon.png'
-import settingsIcon from '../assets/icons/settings_app_icon.png'
+import { Link } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
+import "./Header.css";
+import homeIcon from "../assets/icons/home_app_icon.png";
+import documentIcon from "../assets/icons/document_app_icon.png";
+import linkedinIcon from "../assets/icons/linkedin_app_icon.png";
+import githubIcon from "../assets/icons/github_app_icon.png";
+import settingsIcon from "../assets/icons/settings_app_icon.png";
 
 function Header() {
-  const [isNavOpen, setIsNavOpen] = useState(false)
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const [isNavOpen, setIsNavOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [theme, setTheme] = useState(() => {
-    const savedTheme = localStorage.getItem('theme')
+    const savedTheme = localStorage.getItem("theme");
     const systemPrefersDark = window.matchMedia(
-      '(prefers-color-scheme: dark)',
-    ).matches
-    return savedTheme || (systemPrefersDark ? 'dark' : 'light')
-  })
-  const dropdownRef = useRef(null)
+      "(prefers-color-scheme: dark)",
+    ).matches;
+    return savedTheme || (systemPrefersDark ? "dark" : "light");
+  });
+  const dropdownRef = useRef(null);
 
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme)
-    localStorage.setItem('theme', theme)
-  }, [theme])
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
   useEffect(() => {
     function handleClickOutside(e) {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
-        setIsDropdownOpen(false)
+        setIsDropdownOpen(false);
       }
     }
-    document.addEventListener('click', handleClickOutside)
-    return () => document.removeEventListener('click', handleClickOutside)
-  }, [])
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, []);
 
   return (
     <header>
-      <nav className="navbar">
+      <nav className="navbar panel">
         <div className="logo">Evan Timmons</div>
         <button
           className="nav-toggle"
@@ -46,7 +46,7 @@ function Header() {
         >
           ☰
         </button>
-        <div className={`nav-links${isNavOpen ? ' open' : ''}`}>
+        <div className={`nav-links${isNavOpen ? " open" : ""}`}>
           <div className="home">
             <button className="btn-accent nav-link-btn">
               <img
@@ -123,22 +123,22 @@ function Header() {
               />
               Settings ▾
             </button>
-            <div className={`dropdown-menu${isDropdownOpen ? ' open' : ''}`}>
+            <div className={`dropdown-menu${isDropdownOpen ? " open" : ""}`}>
               <button
                 className="btn-accent dark-theme-toggle"
                 aria-label="Toggle dark mode"
                 onClick={() =>
-                  setTheme((current) => (current === 'dark' ? 'light' : 'dark'))
+                  setTheme((current) => (current === "dark" ? "light" : "dark"))
                 }
               >
-                {theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
+                {theme === "dark" ? "Light Mode" : "Dark Mode"}
               </button>
             </div>
           </div>
         </div>
       </nav>
     </header>
-  )
+  );
 }
 
-export default Header
+export default Header;

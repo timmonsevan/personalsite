@@ -1,15 +1,15 @@
-.body-content-container {
+#home-page {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.body-content-container img {
+#home-page img {
   max-width: 100%;
   height: auto;
 }
 
-.body-content-container h1 {
+#home-page h1 {
   font-size: 2.5rem;
 }
 
