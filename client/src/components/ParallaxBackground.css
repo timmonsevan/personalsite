@@ -9,3 +9,9 @@
   z-index: -1;
   will-change: transform;
 }
+
+@media (max-width: 768px) {
+  #parallax-bg {
+    background-size: 60% auto;
+  }
+}
