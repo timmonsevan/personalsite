@@ -11,7 +11,7 @@ function MtgCard() {
     setLoading(true);
     try {
       const res = await fetch(
-        `${import.meta.env.VITE_API_URL ?? ""}/api/mtg-random-card`
+        `${import.meta.env.VITE_API_URL ?? ""}/api/mtg-random-card`,
       );
       const data = await res.json();
       if (data.imageUrl) {
@@ -34,7 +34,7 @@ function MtgCard() {
     <div title="Random MTG Card" className="content-container">
       <h2>Random MTG Card</h2>
       <button className="btn-accent" onClick={handleClick} disabled={loading}>
-        Draw a card!
+        {loading ? "Drawing..." : "Draw a card!"}
       </button>
       <div className="mtg-card-display">
         {isVisible && <img src={imageUrl} alt={imageAlt} />}
