@@ -10,11 +10,13 @@ import { error } from "console";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
-const mtg_api_call = {
+app.set("trust proxy", true);
+const MTG_API_CALL = {
   hostname: "https://api.scryfall.com",
   path: "/cards/random",
   method: "GET",
 };
+const TIMEAPI_BASE_URL = "https://timeapi.io/api/Time/current";
 const PORT = process.env.PORT || 3000;
 const CLIENT_ORIGINS = (
   process.env.CLIENT_ORIGIN ||
@@ -29,7 +31,7 @@ app.use(morgan("tiny"));
 
 app.get("/api/mtg-random-card", async (req, res) => {
   try {
-    const response = await axios.get(mtg_api_call.hostname + mtg_api_call.path);
+    const response = await axios.get(MTG_API_CALL.hostname + MTG_API_CALL.path);
     const imageUrl =
       response.data.image_uris?.normal ??
       response.data.card_faces?.[0]?.image_uris?.normal;
