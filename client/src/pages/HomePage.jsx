@@ -1,5 +1,4 @@
 import "./HomePage.css";
-import BandnameGenerator from "../components/BandnameGenerator";
 import MtgCard from "../components/MtgCard";
 
 function HomePage() {
@@ -23,13 +22,6 @@ function HomePage() {
       <p className="bio">
         I love to travel, to share good food, and to spend time with my family.
       </p>
-      <p className="widget-intro">
-        I love doom metal, the blues and southern rock, to name a few genres.
-        Doom metal bands always seem to have the same few nouns making up their
-        bandnames, so I threw together a fun little bandname generator widget to
-        get the ideas flowing!
-      </p>
-      <BandnameGenerator />
       <p className="widget-intro">
         I love playing Magic: The Gathering with my friends. The artwork on the
         cards is what drew me into the game. Click this button to draw a random
