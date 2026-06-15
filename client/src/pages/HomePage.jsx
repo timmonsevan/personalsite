@@ -1,7 +1,11 @@
 import "./HomePage.css";
+import { useState } from "react";
 import MtgCard from "../components/MtgCard";
+import CardBinder from "../components/CardBinder";
 
 function HomePage() {
+  const [binderVersion, setBinderVersion] = useState(0);
+
   return (
     <div id="home-page" className="panel">
       <h1>Hi! I'm Evan.</h1>
@@ -27,7 +31,12 @@ function HomePage() {
         cards is what drew me into the game. Click this button to draw a random
         MTG card and see if the art draws you in, too.
       </p>
-      <MtgCard />
+      <MtgCard onSaved={() => setBinderVersion((v) => v + 1)} />
+      <p className="widget-intro">
+        Found a card you like? Save it to your binder below and it'll be
+        here next time you visit.
+      </p>
+      <CardBinder refreshTrigger={binderVersion} />
     </div>
   );
 }

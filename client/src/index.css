@@ -103,7 +103,7 @@ h5 {
   transition: background-color 0.2s ease;
 }
 
-.btn-accent:hover {
+.btn-accent:hover:not(:disabled) {
   background-color: var(--nav-btn-bg-hover);
 }
 

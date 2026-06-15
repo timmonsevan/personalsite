@@ -1,9 +1,11 @@
+import "dotenv/config";
 import express from "express";
 import morgan from "morgan";
 import http from "http";
 import cors from "cors";
 import mtgRouter from "./routes/mtg.js";
 import timeRouter from "./routes/time.js";
+import binderRouter from "./routes/binder.js";
 
 const app = express();
 app.set("trust proxy", true);
@@ -18,9 +20,11 @@ const CLIENT_ORIGINS = (
 
 app.use(cors({ origin: CLIENT_ORIGINS }));
 app.use(morgan("tiny"));
+app.use(express.json());
 
 app.use("/api", mtgRouter);
 app.use("/api", timeRouter);
+app.use("/api", binderRouter);
 
 http.createServer(app).listen(PORT, "0.0.0.0", () => {
   console.log(`Server running on port ${PORT}`);
