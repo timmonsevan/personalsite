@@ -4,6 +4,7 @@ import Footer from "./components/Footer";
 import ParallaxBackground from "./components/ParallaxBackground";
 import HomePage from "./pages/HomePage";
 import ResumePage from "./pages/ResumePage";
+import NNVisualizerPage from "./pages/NNVisualizerPage";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/resume" element={<ResumePage />} />
+        <Route path="/nn-visualizer" element={<NNVisualizerPage />} />
       </Routes>
 
       <Footer />
