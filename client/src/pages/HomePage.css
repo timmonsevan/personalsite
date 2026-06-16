@@ -37,6 +37,10 @@ video {
   margin: 0 auto;
 }
 
-.btn-accent {
+a {
   text-decoration: none;
+}
+
+a:visited {
+  color: inherit;
 }
