@@ -14,7 +14,7 @@ export default function NNVisualizerPage() {
     setLoading(true);
     setError(null);
     try {
-      const API = import.meta.env.VITE_API_URL ?? "http://localhost:8000";
+      const API = import.meta.env.VITE_NN_API_URL ?? "http://localhost:8000";
       const res = await fetch(`${API}/predict`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
