@@ -77,7 +77,7 @@ const DrawCanvas = forwardRef(function DrawCanvas({ onStrokeEnd }, ref) {
       onTouchStart={onDown}
       onTouchMove={onMove}
       onTouchEnd={onUp}
-      style={{ cursor: "crosshair", borderRadius: 8, display: "block" }}
+      style={{ cursor: "crosshair", borderRadius: 8, display: "block", touchAction: "none" }}
     />
   );
 });
