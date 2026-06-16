@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 
 const W = 1000;
 const H = 500;
@@ -34,11 +34,36 @@ const EMPTY_A1 = new Array(128).fill(0);
 const EMPTY_A2 = new Array(64).fill(0);
 const EMPTY_A3 = new Array(10).fill(0);
 
-// Maps a 0–1 activation to a dark-blue → warm-yellow colour
-function nodeColor(v) {
+function useTheme() {
+  const [theme, setTheme] = useState(
+    () => document.documentElement.getAttribute("data-theme") ?? "light",
+  );
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      setTheme(document.documentElement.getAttribute("data-theme") ?? "light");
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+    return () => observer.disconnect();
+  }, []);
+  return theme;
+}
+
+// dark: dark-blue → warm-yellow
+function nodeColorDark(v) {
   const r = Math.round(30 + v * 225);
   const g = Math.round(30 + v * 150);
   const b = Math.round(80 - v * 60);
+  return `rgb(${r},${g},${b})`;
+}
+
+// light: light gray-blue → muted green (#5a8a5a)
+function nodeColorLight(v) {
+  const r = Math.round(200 - v * 110);
+  const g = Math.round(210 - v * 72);
+  const b = Math.round(210 - v * 120);
   return `rgb(${r},${g},${b})`;
 }
 
@@ -61,6 +86,16 @@ export default function NetworkGraph({ activations }) {
     EMPTY_A2,
     EMPTY_A3,
   ];
+
+  const theme = useTheme();
+  const isDark = theme === "dark";
+
+  const nodeColor = isDark ? nodeColorDark : nodeColorLight;
+  const edgeRgb = isDark ? "255,180,50" : "70,130,70";
+  const textMuted = isDark ? "rgba(255,255,255,0.5)" : "rgba(0,0,0,0.5)";
+  const labelColor = isDark ? "rgba(255,255,255,0.3)" : "rgba(0,0,0,0.45)";
+  const nodeStroke = isDark ? "rgba(255,255,255,0.15)" : "rgba(0,0,0,0.15)";
+  const digitFill = isDark ? "white" : "rgba(0,0,0,0.85)";
 
   const n0 = useMemo(() => normalise(a0), [a0]);
   const n1 = useMemo(() => normalise(a1), [a1]);
@@ -100,7 +135,7 @@ export default function NetworkGraph({ activations }) {
             y1={Y1[i1]}
             x2={X_H2}
             y2={y2}
-            stroke={`rgba(255,180,50,${0.02 + n1[i1] * n2[i2] * 0.18})`}
+            stroke={`rgba(${edgeRgb},${0.02 + n1[i1] * n2[i2] * 0.18})`}
             strokeWidth={0.4}
           />
         )),
@@ -115,7 +150,7 @@ export default function NetworkGraph({ activations }) {
             y1={y2}
             x2={X_OUT}
             y2={y3}
-            stroke={`rgba(255,180,50,${0.02 + n2[i2] * a3[i3] * 0.45})`}
+            stroke={`rgba(${edgeRgb},${0.02 + n2[i2] * a3[i3] * 0.45})`}
             strokeWidth={0.5}
           />
         )),
@@ -151,7 +186,7 @@ export default function NetworkGraph({ activations }) {
             cy={y}
             r={18}
             fill={nodeColor(a3[i])}
-            stroke="rgba(255,255,255,0.15)"
+            stroke={nodeStroke}
             strokeWidth={1}
           />
           <text
@@ -159,7 +194,7 @@ export default function NetworkGraph({ activations }) {
             y={y}
             textAnchor="middle"
             dominantBaseline="middle"
-            fill="white"
+            fill={digitFill}
             fontSize={13}
             fontWeight="bold"
             style={{ userSelect: "none" }}
@@ -170,7 +205,7 @@ export default function NetworkGraph({ activations }) {
             x={X_OUT + 26}
             y={y}
             dominantBaseline="middle"
-            fill="rgba(255,255,255,0.5)"
+            fill={textMuted}
             fontSize={10}
             style={{ userSelect: "none" }}
           >
@@ -186,7 +221,7 @@ export default function NetworkGraph({ activations }) {
           x={x}
           y={H - 4}
           textAnchor="middle"
-          fill="rgba(255,255,255,0.3)"
+          fill={labelColor}
           fontSize={11}
           style={{ userSelect: "none" }}
         >
