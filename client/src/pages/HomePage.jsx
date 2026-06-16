@@ -1,5 +1,6 @@
 import "./HomePage.css";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import MtgCard from "../components/MtgCard";
 import CardBinder from "../components/CardBinder";
 
@@ -33,10 +34,13 @@ function HomePage() {
       </p>
       <MtgCard onSaved={() => setBinderVersion((v) => v + 1)} />
       <p className="widget-intro">
-        Found a card you like? Save it to your binder below and it'll be
-        here next time you visit.
+        Found a card you like? Save it to your binder below and it'll be here
+        next time you visit.
       </p>
       <CardBinder refreshTrigger={binderVersion} />
+      <button className="btn-accent">
+        <Link to="/nn-visualizer">Neural Network Visualizer</Link>
+      </button>
     </div>
   );
 }
