@@ -4,14 +4,8 @@
   padding: 28px 24px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 28px;
-}
-
-h1 {
-  font-size: 1.4rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  color: rgba(255, 255, 255, 0.9);
 }
 
 .nn-top {
@@ -50,7 +44,6 @@ button:hover {
   max-width: 280px;
 }
 
-/* ── Prediction bar ── */
 .prediction-bar {
   flex: 1;
   min-height: 280px;
@@ -138,7 +131,6 @@ button:hover {
   font-variant-numeric: tabular-nums;
 }
 
-/* ── Network SVG ── */
 .network-svg {
   width: 100%;
   height: auto;
