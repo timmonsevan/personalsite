@@ -20,13 +20,20 @@ function HomePage() {
       />
       <p className="tagline">I'm a programmer.</p>
       <p className="tagline">I'm a musician.</p>
-      <video controls playsInline preload="metadata" aria-label="Stormy Monday">
+      <video
+        controls
+        playsInline
+        preload="metadata"
+        poster="/assets/images/stormy_monday_poster.jpg"
+        aria-label="Stormy Monday"
+      >
         <source src="/assets/media/stormy_monday_small.mp4" type="video/mp4" />
         <p>Your browser doesn't support HTML video.</p>
       </video>
       <p className="bio">
         I love to travel, to share good food, and to spend time with my family.
       </p>
+      f
       <p className="widget-intro">
         I love playing Magic: The Gathering with my friends. The artwork on the
         cards is what drew me into the game. Click this button to draw a random
@@ -38,6 +45,10 @@ function HomePage() {
         next time you visit.
       </p>
       <CardBinder refreshTrigger={binderVersion} />
+      <p className="widget-intro">
+        Follow this link to see a Neural Network Visualizer/Digit Recognizer I
+        built in Python.
+      </p>
       <button className="btn-accent">
         <Link to="/nn-visualizer">Neural Network Visualizer</Link>
       </button>
