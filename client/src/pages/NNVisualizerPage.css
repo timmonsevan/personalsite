@@ -4,7 +4,6 @@
   padding: 28px 24px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 28px;
 }
 
@@ -15,7 +14,6 @@ h1 {
   color: rgba(255, 255, 255, 0.9);
 }
 
-/* ── Top panel: canvas left, prediction right ── */
 .nn-top {
   display: flex;
   gap: 32px;
