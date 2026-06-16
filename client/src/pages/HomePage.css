@@ -36,3 +36,7 @@ video {
   display: block;
   margin: 0 auto;
 }
+
+.btn-accent {
+  text-decoration: none;
+}
