@@ -9,9 +9,13 @@ client/  (React + Vite)  --->  server/  (Express.js API)  --->  Postgres
   fetch("/api/...")              GET /api/current-time      -> timeapi.io
                                   GET /api/mtg-random-card   -> api.scryfall.com
                                   /api/binder*                -> visitors/cards/binder_entries
+
+client/  (React + Vite)  --->  nn-api  (external Python service)
+  POST /predict                  Returns prediction + per-layer activations
+  (VITE_NN_API_URL, default http://localhost:8000)
 ```
 
-- **client/** - React 19 single-page app built with Vite and routed with `react-router-dom`. Talks to the backend over `/api/*` (proxied to `http://localhost:3000` in dev via `vite.config.js`, or `VITE_API_URL` in production).
+- **client/** - React 19 single-page app built with Vite and routed with `react-router-dom`. Talks to the Express backend over `/api/*` (proxied to `http://localhost:3000` in dev via `vite.config.js`, or `VITE_API_URL` in production) and to an external Python inference service for the NN visualizer (`VITE_NN_API_URL`, default `http://localhost:8000`).
 - **server/** - Express.js API that proxies a couple of third-party services so the frontend doesn't need to manage API keys/CORS for them directly, and owns a small Postgres-backed "card binder" feature. Configured with `cors` (allow-listed client origins), `morgan` request logging, and JSON body parsing.
 
 ## Project structure
@@ -31,6 +35,13 @@ client/
     pages/
       HomePage.jsx         # Landing page, renders MtgCard and CardBinder
       ResumePage.jsx        # Resume content
+      NNVisualizerPage.jsx  # Neural-net digit classifier (see below)
+      NNVisualizerPage.css
+    components/
+      nn_visualizer/
+        DrawCanvas.jsx      # Mouse/touch drawing canvas (280×280)
+        NetworkGraph.jsx    # SVG diagram of network layers and activations
+        PredictionBar.jsx   # Per-digit confidence bars + top prediction display
     utils/
       visitorId.js          # Get-or-create a per-browser UUID in localStorage
 
@@ -65,6 +76,15 @@ A "draw a random Magic: The Gathering card" widget on the home page.
 - The server proxies `api.scryfall.com/cards/random` and returns the card's `id`, `name`, `imageUrl`, `manaCost`, `typeLine`, `setCode`, `setName`, `rarity`, and `colors` (falling back to the first card face's data for double-faced cards).
 - The component shows a loading state while fetching, then displays the card art with a **Save to Binder** button, or an error message if the request fails.
 - "Save to Binder" `POST`s the drawn card to `/api/binder` so it shows up in the visitor's `CardBinder`.
+
+### `NNVisualizerPage.jsx` (`/nn-visualizer`)
+
+An interactive digit-recognition demo that visualises a neural network's internal activations in real time.
+
+- **`DrawCanvas.jsx`** — a 280×280 canvas element (mouse + touch) where the user draws a digit. After each stroke ends, the canvas is exported as a PNG data-URL and `POST`ed to `VITE_NN_API_URL/predict` (default `http://localhost:8000`).
+- **`PredictionBar.jsx`** — displays the network's top predicted digit and confidence, plus a horizontal bar chart for all ten softmax outputs.
+- **`NetworkGraph.jsx`** — an SVG diagram (1000×500) showing four layers: a 28×28 pixel grid (input), hidden layer 1 (128 nodes), hidden layer 2 (64 nodes), and the output layer (10 digit nodes). Node colours map activation magnitude from dark blue (low) to warm yellow (high); edge opacity is proportional to the product of the connected nodes' activations. The input and hidden layers render at full resolution; H1→H2 edges are sampled to 20 representative H1 nodes to keep rendering fast.
+- The API response shape expected: `{ prediction: number, activations: [a0, a1, a2, a3] }` where `a0` is length 784, `a1` 128, `a2` 64, `a3` 10 (softmax).
 
 ### `CardBinder.jsx`
 
@@ -117,4 +137,4 @@ Runs the Vite dev server, proxying `/api/*` requests to `http://localhost:3000`.
 ## Environment variables
 
 - **server**: `PORT` (default `3000`), `CLIENT_ORIGIN` (comma-separated list of allowed CORS origins; defaults to the production frontend URLs), `DATABASE_URL` (Postgres connection string used by the card binder)
-- **client**: `VITE_API_URL` (base URL of the API in production; unset/empty in dev so the Vite proxy handles `/api/*`)
+- **client**: `VITE_API_URL` (base URL of the Express API in production; unset/empty in dev so the Vite proxy handles `/api/*`), `VITE_NN_API_URL` (base URL of the neural-net inference service; defaults to `http://localhost:8000`)
