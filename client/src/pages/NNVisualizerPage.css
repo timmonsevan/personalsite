@@ -1,3 +1,11 @@
+:root {
+  --nn-accent: #5a8a5a;
+}
+
+[data-theme="dark"] {
+  --nn-accent: var(--nn-accent);
+}
+
 .nn-page {
   max-width: 1100px;
   margin: 0 auto;
@@ -95,7 +103,7 @@ button:hover {
   font-size: 4.5rem;
   font-weight: 700;
   line-height: 1;
-  color: #ffd700;
+  color: var(--nn-accent);
 }
 
 .digit-conf {
@@ -124,7 +132,7 @@ button:hover {
 }
 
 .bar-row.winner .bar-label {
-  color: #ffd700;
+  color: var(--nn-accent);
   font-weight: 700;
 }
 
@@ -152,7 +160,7 @@ button:hover {
 }
 
 .bar-row.winner .bar-fill {
-  background: #ffd700;
+  background: var(--nn-accent);
 }
 
 .bar-pct {
