@@ -24,8 +24,8 @@
 
 button {
   padding: 7px 28px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(8, 10, 22, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 6px;
   color: rgba(255, 255, 255, 0.8);
   font-size: 13px;
@@ -34,7 +34,7 @@ button {
 }
 
 button:hover {
-  background: rgba(255, 255, 255, 0.16);
+  background: rgba(18, 22, 45, 0.92);
 }
 
 .error-msg {
@@ -48,8 +48,8 @@ button:hover {
   flex: 1;
   min-height: 280px;
   padding: 20px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: rgba(8, 10, 22, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
 }
 
