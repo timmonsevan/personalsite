@@ -34,7 +34,6 @@ const DrawCanvas = forwardRef(function DrawCanvas({ onStrokeEnd }, ref) {
     drawing.current = true;
     const [x, y] = getXY(e);
     lastPos.current = [x, y];
-    // paint a dot so single taps register
     const ctx = canvasEl.current.getContext("2d");
     ctx.fillStyle = "#fff";
     ctx.beginPath();
@@ -77,7 +76,12 @@ const DrawCanvas = forwardRef(function DrawCanvas({ onStrokeEnd }, ref) {
       onTouchStart={onDown}
       onTouchMove={onMove}
       onTouchEnd={onUp}
-      style={{ cursor: "crosshair", borderRadius: 8, display: "block", touchAction: "none" }}
+      style={{
+        cursor: "crosshair",
+        borderRadius: 8,
+        display: "block",
+        touchAction: "none",
+      }}
     />
   );
 });

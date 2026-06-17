@@ -51,7 +51,6 @@ function useTheme() {
   return theme;
 }
 
-// dark: dark-blue → warm-yellow
 function nodeColorDark(v) {
   const r = Math.round(30 + v * 225);
   const g = Math.round(30 + v * 150);
@@ -59,7 +58,6 @@ function nodeColorDark(v) {
   return `rgb(${r},${g},${b})`;
 }
 
-// light: light gray-blue → muted green (#5a8a5a)
 function nodeColorLight(v) {
   const r = Math.round(200 - v * 110);
   const g = Math.round(210 - v * 72);
@@ -100,7 +98,7 @@ export default function NetworkGraph({ activations }) {
   const n0 = useMemo(() => normalise(a0), [a0]);
   const n1 = useMemo(() => normalise(a1), [a1]);
   const n2 = useMemo(() => normalise(a2), [a2]);
-  // a3 is already softmax (0–1), use directly for colour
+  // a3 is already softmax (0–1)
 
   const gridX = X_IN - (28 * CELL) / 2;
   const gridY = H / 2 - (28 * CELL) / 2;
@@ -111,7 +109,6 @@ export default function NetworkGraph({ activations }) {
       className="network-svg"
       preserveAspectRatio="xMidYMid meet"
     >
-      {/* ── Input pixel grid ── */}
       {n0.map((v, idx) => {
         const gray = Math.round(v * 255);
         return (
@@ -126,7 +123,6 @@ export default function NetworkGraph({ activations }) {
         );
       })}
 
-      {/* ── H1 → H2 edges (sampled) ── */}
       {H1_SAMPLE.flatMap((i1) =>
         Y2.map((y2, i2) => (
           <line
@@ -141,7 +137,6 @@ export default function NetworkGraph({ activations }) {
         )),
       )}
 
-      {/* ── H2 → Output edges ── */}
       {Y2.flatMap((y2, i2) =>
         Y3.map((y3, i3) => (
           <line
@@ -156,7 +151,6 @@ export default function NetworkGraph({ activations }) {
         )),
       )}
 
-      {/* ── H1 nodes (128) ── */}
       {Y1.map((y, i) => (
         <circle
           key={`h1-${i}`}
@@ -167,7 +161,6 @@ export default function NetworkGraph({ activations }) {
         />
       ))}
 
-      {/* ── H2 nodes (64) ── */}
       {Y2.map((y, i) => (
         <circle
           key={`h2-${i}`}
@@ -178,7 +171,6 @@ export default function NetworkGraph({ activations }) {
         />
       ))}
 
-      {/* ── Output nodes with digit label and confidence ── */}
       {Y3.map((y, i) => (
         <g key={`out-${i}`}>
           <circle
@@ -214,7 +206,6 @@ export default function NetworkGraph({ activations }) {
         </g>
       ))}
 
-      {/* ── Layer labels ── */}
       {LABELS.map(([x, label]) => (
         <text
           key={label}
