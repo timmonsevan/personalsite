@@ -31,3 +31,21 @@
     align-items: center;
   }
 }
+
+@media (max-width: 767px) {
+  #clock-widget {
+    max-height: 6rem;
+    overflow: hidden;
+    transition:
+      max-height 0.3s ease,
+      opacity 0.25s ease,
+      margin-bottom 0.3s ease;
+  }
+
+  #clock-widget.collapsed {
+    max-height: 0;
+    margin-bottom: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+}

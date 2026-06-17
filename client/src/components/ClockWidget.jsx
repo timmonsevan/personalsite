@@ -1,7 +1,7 @@
 import "./ClockWidget.css";
 import { useEffect, useState } from "react";
 
-function ClockWidget() {
+function ClockWidget({ collapsed = false }) {
   const [time, setTime] = useState(null);
   const [timeZone, setTimeZone] = useState("");
   const [hasError, setHasError] = useState(false);
@@ -44,7 +44,11 @@ function ClockWidget() {
   if (hasError || !time) return null;
 
   return (
-    <div id="clock-widget" title="Your local time">
+    <div
+      id="clock-widget"
+      className={collapsed ? "collapsed" : ""}
+      title="Your local time"
+    >
       <p className="clock-date">
         {time.toLocaleDateString([], {
           weekday: "long",

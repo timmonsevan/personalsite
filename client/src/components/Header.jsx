@@ -12,6 +12,7 @@ function Header() {
   const dropdownRef = useRef(null);
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const [theme, setTheme] = useState(() => {
     const savedTheme = localStorage.getItem("theme");
@@ -27,6 +28,17 @@ function Header() {
   }, [theme]);
 
   useEffect(() => {
+    function handleScroll() {
+      const scrollY = window.scrollY;
+      setIsScrolled((wasScrolled) =>
+        wasScrolled ? scrollY > 10 : scrollY > 60,
+      );
+    }
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
     function handleClickOutside(e) {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
         setIsDropdownOpen(false);
@@ -39,7 +51,7 @@ function Header() {
   return (
     <header>
       <nav className="panel">
-        <ClockWidget />
+        <ClockWidget collapsed={isScrolled} />
         <div className="navbar">
           <div className="logo">Evan Timmons</div>
           <button
