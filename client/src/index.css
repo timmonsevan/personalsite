@@ -76,14 +76,14 @@ h5 {
 
 /* "Frosted glass" panel shared by the header, footer, and page content */
 .panel {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(4px);
   border-radius: 12px;
   padding: 1.5rem;
 }
 
 [data-theme="dark"] .panel {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /* Accent button shared by nav buttons and widget action buttons */

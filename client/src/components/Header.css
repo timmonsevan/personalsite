@@ -76,9 +76,17 @@ nav {
   background-color: transparent;
 }
 
+[data-theme="dark"] .icon {
+  filter: invert(1);
+}
+
 .linkedin img {
   width: 1.8rem;
   height: 1.8rem;
+}
+
+[data-theme="dark"] .linkedin .icon {
+  filter: none;
 }
 
 .settings-dropdown {
