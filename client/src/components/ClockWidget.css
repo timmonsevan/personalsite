@@ -28,6 +28,7 @@
 @media (max-width: 480px) {
   #clock-widget {
     flex-direction: column;
+    flex-wrap: nowrap;
     align-items: center;
   }
 }
