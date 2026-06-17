@@ -33,7 +33,6 @@ function HomePage() {
       <p className="bio">
         I love to travel, to share good food, and to spend time with my family.
       </p>
-      f
       <p className="widget-intro">
         I love playing Magic: The Gathering with my friends. The artwork on the
         cards is what drew me into the game. Click this button to draw a random
