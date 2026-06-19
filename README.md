@@ -16,7 +16,7 @@ client/  (React + Vite)  --->  nn-api  (external Python service)
 ```
 
 - **client/** - React 19 single-page app built with Vite and routed with `react-router-dom`. Talks to the Express backend over `/api/*` (proxied to `http://localhost:3000` in dev via `vite.config.js`, or `VITE_API_URL` in production) and to an external Python inference service for the NN visualizer (`VITE_NN_API_URL`, default `http://localhost:8000`).
-- **server/** - Express.js API that proxies a couple of third-party services so the frontend doesn't need to manage API keys/CORS for them directly, and owns a small Postgres-backed "card binder" feature. Configured with `cors` (allow-listed client origins), `morgan` request logging, and JSON body parsing.
+- **server/** - Express.js API that proxies a couple of third-party services so the frontend doesn't need to manage API keys/CORS for them directly, and owns a small Postgres-backed "card binder" feature. Route handlers in `routes/` stay focused on HTTP concerns (validation, status codes) and delegate all SQL to `repo/` modules. Configured with `cors` (allow-listed client origins), `morgan` request logging, and JSON body parsing.
 
 ## Project structure
 
@@ -65,6 +65,8 @@ server/
     time.js               # GET /api/current-time
     mtg.js                # GET /api/mtg-random-card
     binder.js             # /api/binder routes (per-visitor card collection)
+  repo/
+    binderRepo.js         # DB queries for binder.js (visitors/cards/binder_entries)
 ```
 
 ## Major components
@@ -111,7 +113,7 @@ Displays the current visitor's saved-card collection on the MTG Card Binder page
 - Each browser gets a UUID (`crypto.randomUUID()`) generated on first use and stored in `localStorage` (`client/src/utils/visitorId.js`), sent as an `X-Visitor-Id` header on every binder request - this is how the binder is scoped per-visitor with no real authentication.
 - On mount, calls `GET /api/binder` and renders the returned cards in a responsive grid.
 - Each card has a **Remove** button that calls `DELETE /api/binder/:cardId`.
-- Backed by Postgres: a normalized `cards` table (cached Scryfall data, keyed by Scryfall's card `id`) and a `binder_entries` join table (`visitor_id` + `card_id`, unique per pair) - see `server/db/schema.sql`.
+- Backed by Postgres: a normalized `cards` table (cached Scryfall data, keyed by Scryfall's card `id`) and a `binder_entries` join table (`visitor_id` + `card_id`, unique per pair) - see `server/db/schema.sql`. Queries live in `server/repo/binderRepo.js`; `routes/binder.js` calls into that rather than running SQL itself.
 
 ## Backend routes
 
