@@ -53,8 +53,8 @@ function Header() {
     <header>
       <nav className="panel">
         <ClockWidget collapsed={isScrolled} />
+        <div className="logo">Evan Timmons</div>
         <div className="navbar">
-          <div className="logo">Evan Timmons</div>
           <button
             className="nav-toggle"
             aria-label="Toggle navigation"
