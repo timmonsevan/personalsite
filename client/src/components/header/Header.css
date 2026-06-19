@@ -16,7 +16,6 @@ nav {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  align-self: flex-end;
 }
 
 .nav-toggle {
@@ -46,6 +45,10 @@ nav {
 }
 
 @media (min-width: 768px) {
+  .navbar {
+    align-self: flex-end;
+  }
+
   .nav-toggle {
     display: none;
   }
