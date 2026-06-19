@@ -23,27 +23,37 @@ client/  (React + Vite)  --->  nn-api  (external Python service)
 ```
 client/
   src/
-    App.jsx              # Top-level routes (/, /resume)
-    main.jsx             # React entry point
+    App.jsx                  # Top-level routes: /, /resume, /projects, /projects/mtg, /projects/nn-visualizer
+    main.jsx                  # React entry point
     components/
-      Header.jsx          # Nav bar, light/dark theme toggle, hosts ClockWidget
-      Footer.jsx           # Contact info
-      ParallaxBackground.jsx
-      ClockWidget.jsx      # Live local-time widget (see below)
-      MtgCard.jsx          # Random Magic: The Gathering card widget (see below)
-      CardBinder.jsx       # Visitor's saved-card collection (see below)
-    pages/
-      HomePage.jsx         # Landing page, renders MtgCard and CardBinder
-      ResumePage.jsx        # Resume content
-      NNVisualizerPage.jsx  # Neural-net digit classifier (see below)
-      NNVisualizerPage.css
-    components/
+      header/
+        Header.jsx             # Nav bar, light/dark theme toggle, hosts ClockWidget
+      footer/
+        Footer.jsx             # Contact info
+      background/
+        ParallaxBackground.jsx
+      clock/
+        ClockWidget.jsx        # Live local-time widget (see below)
+      mtg_components/
+        MtgCard.jsx            # Random Magic: The Gathering card widget (see below)
+        CardBinder.jsx         # Visitor's saved-card collection (see below)
       nn_visualizer/
-        DrawCanvas.jsx      # Mouse/touch drawing canvas (280×280)
-        NetworkGraph.jsx    # SVG diagram of network layers and activations
-        PredictionBar.jsx   # Per-digit confidence bars + top prediction display
+        DrawCanvas.jsx         # Mouse/touch drawing canvas (280×280)
+        NetworkGraph.jsx       # SVG diagram of network layers and activations
+        PredictionBar.jsx      # Per-digit confidence bars + top prediction display
+    pages/
+      home/
+        HomePage.jsx           # Landing page (bio, photo, video)
+      resume/
+        ResumePage.jsx         # Resume content
+      projects/
+        ProjectsPage.jsx       # Hub page linking to the MTG Binder and NN Visualizer project pages
+        mtg/
+          MtgPage.jsx           # Hosts MtgCard and CardBinder (see below)
+        nn_visualizer/
+          NNVisualizerPage.jsx  # Neural-net digit classifier (see below)
     utils/
-      visitorId.js          # Get-or-create a per-browser UUID in localStorage
+      visitorId.js             # Get-or-create a per-browser UUID in localStorage
 
 server/
   index.js               # Express app setup, CORS, logging, route mounting
@@ -68,16 +78,24 @@ Displays the visitor's local date, time, and timezone in the header.
 - The component seeds a `Date` from that response, then runs a `setInterval` to tick the displayed time forward every second client-side (no further polling).
 - Renders `null` if the request fails or before the initial time has loaded.
 
+### `ProjectsPage.jsx` (`/projects`)
+
+A hub page linking to the two project demos below: the MTG Card Binder (`/projects/mtg`) and the Neural Net Visualizer (`/projects/nn-visualizer`).
+
+### `MtgPage.jsx` (`/projects/mtg`)
+
+Hosts the `MtgCard` and `CardBinder` widgets together.
+
 ### `MtgCard.jsx`
 
-A "draw a random Magic: The Gathering card" widget on the home page.
+A "draw a random Magic: The Gathering card" widget on the MTG Card Binder page.
 
 - On button click, calls `GET /api/mtg-random-card`.
 - The server proxies `api.scryfall.com/cards/random` and returns the card's `id`, `name`, `imageUrl`, `manaCost`, `typeLine`, `setCode`, `setName`, `rarity`, and `colors` (falling back to the first card face's data for double-faced cards).
 - The component shows a loading state while fetching, then displays the card art with a **Save to Binder** button, or an error message if the request fails.
 - "Save to Binder" `POST`s the drawn card to `/api/binder` so it shows up in the visitor's `CardBinder`.
 
-### `NNVisualizerPage.jsx` (`/nn-visualizer`)
+### `NNVisualizerPage.jsx` (`/projects/nn-visualizer`)
 
 An interactive digit-recognition demo that visualises a neural network's internal activations in real time.
 
@@ -88,7 +106,7 @@ An interactive digit-recognition demo that visualises a neural network's interna
 
 ### `CardBinder.jsx`
 
-Displays the current visitor's saved-card collection on the home page.
+Displays the current visitor's saved-card collection on the MTG Card Binder page.
 
 - Each browser gets a UUID (`crypto.randomUUID()`) generated on first use and stored in `localStorage` (`client/src/utils/visitorId.js`), sent as an `X-Visitor-Id` header on every binder request - this is how the binder is scoped per-visitor with no real authentication.
 - On mount, calls `GET /api/binder` and renders the returned cards in a responsive grid.
