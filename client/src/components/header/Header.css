@@ -64,8 +64,8 @@ nav {
   height: 2.6rem;
 }
 
-.nav-link-btn a,
-.nav-link-btn a:visited {
+.nav-link-btn,
+.nav-link-btn:visited {
   color: inherit;
   text-decoration: none;
 }
