@@ -1,6 +1,6 @@
 import "./CardBinder.css";
 import { useEffect, useState } from "react";
-import { getVisitorId } from "../utils/visitorId";
+import { getVisitorId } from "../../utils/visitorId";
 
 function CardBinder({ refreshTrigger }) {
   const [cards, setCards] = useState([]);
