@@ -70,6 +70,10 @@ nav {
   text-decoration: none;
 }
 
+[data-theme="dark"] .nav-link-btn {
+  background-color: rgba(8, 10, 22, 0.88);
+}
+
 .icon {
   width: 1.2rem;
   height: 1.2rem;
@@ -111,7 +115,7 @@ nav {
   display: block;
 }
 
-.btn-accent.dark-theme-toggle {
+.btn-accent .dark-theme-toggle {
   width: 100%;
   text-align: center;
   padding: 0.4rem 0.75rem;
