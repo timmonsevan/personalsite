@@ -150,10 +150,7 @@ function Header() {
                 />
                 Settings {isDropdownOpen ? "▴" : "▾"}
               </button>
-              <div
-                className={`dropdown-menu${isDropdownOpen ? " open" : ""}`}
-                id="dropdown-menu"
-              >
+              <div className={`dropdown-menu${isDropdownOpen ? " open" : ""}`}>
                 <button
                   className="btn-accent dark-theme-toggle"
                   aria-label="Toggle dark mode"
