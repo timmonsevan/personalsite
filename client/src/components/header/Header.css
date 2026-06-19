@@ -45,6 +45,10 @@ nav {
 }
 
 @media (min-width: 768px) {
+  .navbar {
+    align-self: flex-end;
+  }
+
   .nav-toggle {
     display: none;
   }
