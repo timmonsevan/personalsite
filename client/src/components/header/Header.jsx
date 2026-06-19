@@ -7,6 +7,7 @@ import documentIcon from "../../assets/icons/document_app_icon.png";
 import linkedinIcon from "../../assets/icons/linkedin_app_icon.png";
 import githubIcon from "../../assets/icons/github_app_icon.png";
 import settingsIcon from "../../assets/icons/settings_app_icon.png";
+import projectsIcon from "../../assets/icons/projects_app_icon.png";
 
 function Header() {
   const dropdownRef = useRef(null);
@@ -64,7 +65,7 @@ function Header() {
           </button>
           <div className={`nav-links${isNavOpen ? " open" : ""}`}>
             <div className="home">
-              <button className="btn-accent nav-link-btn">
+              <Link to="/" className="btn-accent nav-link-btn">
                 <img
                   src={homeIcon}
                   alt="Home Icon"
@@ -72,11 +73,11 @@ function Header() {
                   width="200"
                   height="200"
                 />
-                <Link to="/">Home</Link>
-              </button>
+                Home
+              </Link>
             </div>
             <div className="resume">
-              <button className="btn-accent nav-link-btn">
+              <Link to="/resume" className="btn-accent nav-link-btn">
                 <img
                   src={documentIcon}
                   alt="Document Icon"
@@ -84,11 +85,28 @@ function Header() {
                   width="200"
                   height="200"
                 />
-                <Link to="/resume">Resume</Link>
-              </button>
+                Resume
+              </Link>
+            </div>
+            <div className="projects">
+              <Link to="/projects" className="btn-accent nav-link-btn">
+                <img
+                  src={projectsIcon}
+                  alt="Projects Icon"
+                  className="icon"
+                  width="200"
+                  height="200"
+                />
+                Projects
+              </Link>
             </div>
             <div className="linkedin">
-              <button className="btn-accent nav-link-btn">
+              <a
+                href="https://www.linkedin.com/in/timmonsevan/"
+                target="_blank"
+                rel="noreferrer"
+                className="btn-accent nav-link-btn"
+              >
                 <img
                   src={linkedinIcon}
                   alt="LinkedIn Icon"
@@ -96,17 +114,16 @@ function Header() {
                   width="200"
                   height="200"
                 />
-                <a
-                  href="https://www.linkedin.com/in/timmonsevan/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  LinkedIn
-                </a>
-              </button>
+                LinkedIn
+              </a>
             </div>
             <div className="github">
-              <button className="btn-accent nav-link-btn">
+              <a
+                href="https://www.github.com/timmonsevan"
+                target="_blank"
+                rel="noreferrer"
+                className="btn-accent nav-link-btn"
+              >
                 <img
                   src={githubIcon}
                   alt="GitHub Icon"
@@ -114,14 +131,8 @@ function Header() {
                   width="200"
                   height="200"
                 />
-                <a
-                  href="https://www.github.com/timmonsevan"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  GitHub
-                </a>
-              </button>
+                GitHub
+              </a>
             </div>
             <div className="settings-dropdown" ref={dropdownRef}>
               <button
