@@ -14,8 +14,8 @@ nav {
 .navbar {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
 }
 
 .nav-toggle {
@@ -29,7 +29,6 @@ nav {
   border: none;
   cursor: pointer;
   color: var(--text-color);
-  align-self: flex-end;
 }
 
 .nav-links {
