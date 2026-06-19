@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./MtgPage.css";
 import MtgCard from "../../../components/mtg_components/MtgCard";
 import CardBinder from "../../../components/mtg_components/CardBinder";
 
