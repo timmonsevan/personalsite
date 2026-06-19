@@ -1,6 +1,6 @@
 import "./MtgCard.css";
 import { useState } from "react";
-import { getVisitorId } from "../utils/visitorId";
+import { getVisitorId } from "../../utils/visitorId";
 
 function MtgCard({ onSaved }) {
   const [card, setCard] = useState(null);

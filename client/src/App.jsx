@@ -1,10 +1,12 @@
 import { Routes, Route } from "react-router-dom";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import ParallaxBackground from "./components/ParallaxBackground";
-import HomePage from "./pages/HomePage";
-import ResumePage from "./pages/ResumePage";
-import NNVisualizerPage from "./pages/NNVisualizerPage";
+import Header from "./components/header/Header";
+import Footer from "./components/footer/Footer";
+import ParallaxBackground from "./components/background/ParallaxBackground";
+import HomePage from "./pages/home/HomePage";
+import ResumePage from "./pages/resume/ResumePage";
+import NNVisualizerPage from "./pages/projects/nn_visualizer/NNVisualizerPage";
+import ProjectsPage from "./pages/projects/ProjectsPage";
+import MtgPage from "./pages/projects/mtg/MtgPage";
 
 function App() {
   return (
@@ -15,7 +17,9 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/resume" element={<ResumePage />} />
-        <Route path="/nn-visualizer" element={<NNVisualizerPage />} />
+        <Route path="/projects" element={<ProjectsPage />} />
+        <Route path="/projects/mtg" element={<MtgPage />} />
+        <Route path="/projects/nn-visualizer" element={<NNVisualizerPage />} />
       </Routes>
 
       <Footer />

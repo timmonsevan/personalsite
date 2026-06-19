@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import "./Header.css";
-import ClockWidget from "./ClockWidget";
-import homeIcon from "../assets/icons/home_app_icon.png";
-import documentIcon from "../assets/icons/document_app_icon.png";
-import linkedinIcon from "../assets/icons/linkedin_app_icon.png";
-import githubIcon from "../assets/icons/github_app_icon.png";
-import settingsIcon from "../assets/icons/settings_app_icon.png";
+import ClockWidget from "../clock/ClockWidget";
+import homeIcon from "../../assets/icons/home_app_icon.png";
+import documentIcon from "../../assets/icons/document_app_icon.png";
+import linkedinIcon from "../../assets/icons/linkedin_app_icon.png";
+import githubIcon from "../../assets/icons/github_app_icon.png";
+import settingsIcon from "../../assets/icons/settings_app_icon.png";
 
 function Header() {
   const dropdownRef = useRef(null);

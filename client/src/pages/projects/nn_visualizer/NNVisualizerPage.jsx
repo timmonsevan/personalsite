@@ -1,8 +1,8 @@
 import "./NNVisualizerPage.css";
 import { useState, useRef, useCallback } from "react";
-import DrawCanvas from "../components/nn_visualizer/DrawCanvas";
-import NetworkGraph from "../components/nn_visualizer/NetworkGraph";
-import PredictionBar from "../components/nn_visualizer/PredictionBar";
+import DrawCanvas from "../../../components/nn_visualizer/DrawCanvas";
+import NetworkGraph from "../../../components/nn_visualizer/NetworkGraph";
+import PredictionBar from "../../../components/nn_visualizer/PredictionBar";
 
 export default function NNVisualizerPage() {
   const [result, setResult] = useState(null);
