@@ -5,13 +5,13 @@ function ProjectsPage() {
   return (
     <div id="projects-page" className="panel">
       <ul id="projects-list">
-        <li id="mtg-project">
+        <li id="mtg-project" className="project-item">
           <h2>MTG Card Binder</h2>
           <Link to="/projects/mtg" className="btn-accent">
             MTG Binder
           </Link>
         </li>
-        <li id="nn-visualizer-project">
+        <li id="nn-visualizer-project" className="project-item">
           <h2>Neural Network Visualizer</h2>
           <p className="widget-intro">
             Follow this link to see a Neural Network Visualizer/Digit Recognizer
