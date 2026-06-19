@@ -29,6 +29,7 @@ nav {
   border: none;
   cursor: pointer;
   color: var(--text-color);
+  align-self: flex-end;
 }
 
 .nav-links {
@@ -45,10 +46,6 @@ nav {
 }
 
 @media (min-width: 768px) {
-  .navbar {
-    align-self: flex-end;
-  }
-
   .nav-toggle {
     display: none;
   }
