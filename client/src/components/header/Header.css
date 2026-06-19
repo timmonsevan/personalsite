@@ -113,7 +113,8 @@ nav {
 }
 
 .dropdown-menu.open {
-  display: block;
+  display: flex;
+  align-items: center;
 }
 
 .btn-accent .dark-theme-toggle {
