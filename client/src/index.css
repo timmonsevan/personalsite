@@ -104,8 +104,10 @@ h5 {
   transition: background-color 0.2s ease;
 }
 
-.btn-accent:hover:not(:disabled) {
-  background-color: var(--nav-btn-bg-hover);
+@media (hover: hover) {
+  .btn-accent:hover:not(:disabled) {
+    background-color: var(--nav-btn-bg-hover);
+  }
 }
 
 /* Centered widget layout shared by the bandname generator and MTG card */

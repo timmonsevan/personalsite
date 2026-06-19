@@ -49,8 +49,10 @@ button {
   transition: background 0.15s;
 }
 
-button:hover {
-  background: rgba(255, 255, 255, 0.9);
+@media (hover: hover) {
+  button:hover {
+    background: rgba(255, 255, 255, 0.9);
+  }
 }
 
 [data-theme="dark"] button {
@@ -59,8 +61,10 @@ button:hover {
   color: rgba(255, 255, 255, 0.8);
 }
 
-[data-theme="dark"] button:hover {
-  background: rgba(18, 22, 45, 0.92);
+@media (hover: hover) {
+  [data-theme="dark"] button:hover {
+    background: rgba(18, 22, 45, 0.92);
+  }
 }
 
 .error-msg {
