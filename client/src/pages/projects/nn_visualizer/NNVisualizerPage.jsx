@@ -45,7 +45,9 @@ export default function NNVisualizerPage() {
       <div className="nn-top">
         <div className="nn-canvas-section">
           <DrawCanvas ref={canvasRef} onStrokeEnd={handleStrokeEnd} />
-          <button onClick={handleClear}>Clear</button>
+          <button className="nn-clear-btn" onClick={handleClear}>
+            Clear
+          </button>
           {error && <p className="nn-error">{error}</p>}
         </div>
         <PredictionBar result={result} loading={loading} />

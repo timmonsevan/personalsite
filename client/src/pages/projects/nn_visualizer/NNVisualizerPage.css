@@ -38,7 +38,7 @@
   flex-shrink: 0;
 }
 
-button {
+.nn-clear-btn {
   padding: 7px 28px;
   background: rgba(255, 255, 255, 0.72);
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -50,19 +50,19 @@ button {
 }
 
 @media (hover: hover) {
-  button:hover {
+  .nn-clear-btn:hover {
     background: rgba(255, 255, 255, 0.9);
   }
 }
 
-[data-theme="dark"] button {
+[data-theme="dark"] .nn-clear-btn {
   background: rgba(8, 10, 22, 0.88);
   border-color: rgba(255, 255, 255, 0.1);
   color: rgba(255, 255, 255, 0.8);
 }
 
 @media (hover: hover) {
-  [data-theme="dark"] button:hover {
+  [data-theme="dark"] .nn-clear-btn:hover {
     background: rgba(18, 22, 45, 0.92);
   }
 }
