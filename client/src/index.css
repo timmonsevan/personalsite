@@ -98,6 +98,7 @@ h5 {
   background-color: var(--nav-btn-bg);
   color: #f0f0f0;
   font-size: 1rem;
+  text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
@@ -107,6 +108,16 @@ h5 {
 @media (hover: hover) {
   .btn-accent:hover:not(:disabled) {
     background-color: var(--nav-btn-bg-hover);
+  }
+}
+
+[data-theme="dark"] .btn-accent {
+  background-color: rgba(8, 10, 22, 0.88);
+}
+
+@media (hover: hover) {
+  [data-theme="dark"] .btn-accent:hover:not(:disabled) {
+    background-color: rgba(18, 22, 45, 0.92);
   }
 }
 

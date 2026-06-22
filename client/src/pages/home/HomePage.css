@@ -30,11 +30,3 @@ video {
   display: block;
   margin: 0 auto;
 }
-
-a {
-  text-decoration: none;
-}
-
-a:visited {
-  color: inherit;
-}
