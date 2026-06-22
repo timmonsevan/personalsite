@@ -121,17 +121,6 @@ h5 {
   }
 }
 
-/* Centered widget layout shared by the bandname generator and MTG card */
-.content-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.content-container h2 {
-  text-align: center;
-}
-
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
