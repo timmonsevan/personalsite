@@ -5,7 +5,7 @@ const router = Router();
 
 const RANDOM_MTG_API_URL = "https://api.scryfall.com/cards/random";
 const NAMED_MTG_API_URL = "https://api.scryfall.com/cards/named";
-const ORACLE_MTG_API_URL = "https://api.scryfall.com/cards/search";
+const SEARCH_MTG_API_URL = "https://api.scryfall.com/cards/search";
 
 function mapCardResponse(card) {
   const face = card.card_faces?.[0];
@@ -56,7 +56,7 @@ router.get("/mtg-card-prints", async (req, res) => {
     return res.status(400).json({ error: "Missing oracleId" });
   }
   try {
-    const response = await axios.get(ORACLE_MTG_API_URL, {
+    const response = await axios.get(SEARCH_MTG_API_URL, {
       params: { q: `oracleid:${oracleId}`, unique: "prints" },
     });
     const prints = response.data.data.map((card) => ({
