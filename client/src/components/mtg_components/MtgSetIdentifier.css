@@ -1,0 +1,41 @@
+.set-identifier-form {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.set-identifier-form input {
+  flex: 1;
+  padding: 0.4rem 0.7rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+.set-identifier-error {
+  color: var(--muted-color);
+}
+
+.print-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.print-list-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.4rem 0.6rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.print-meta {
+  color: var(--muted-color);
+  text-transform: capitalize;
+}
