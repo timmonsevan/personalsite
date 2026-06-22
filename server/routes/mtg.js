@@ -57,7 +57,7 @@ router.get("/mtg-card-prints", async (req, res) => {
   }
   try {
     const response = await axios.get(SEARCH_MTG_API_URL, {
-      params: { q: `oracleid:${oracleId}`, unique: "prints" },
+      params: { q: `oracleid:${oracleId}`, unique: "prints", order: "set" },
     });
     const prints = response.data.data.map((card) => ({
       id: card.id,
