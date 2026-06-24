@@ -55,16 +55,21 @@ function MtgSetIdentifier() {
       </form>
       {error && <p className="set-identifier-error">{error}</p>}
       {!error && prints.length > 0 && (
-        <ul className="print-list">
-          {prints.map((print) => (
-            <li key={print.id} className="print-list-item">
-              <span className="print-set-name">
-                {print.setName} ({print.setCode.toUpperCase()})
-              </span>
-              <span className="print-meta">{print.rarity}</span>
-            </li>
-          ))}
-        </ul>
+        <>
+          {prints.some((print) =>
+            print.setName.toLowerCase().includes("commander"),
+          ) && <h3>Reprinted in commander sets</h3>}
+          <ul className="print-list">
+            {prints.map((print) => (
+              <li key={print.id} className="print-list-item">
+                <span className="print-set-name">
+                  {print.setName} ({print.setCode.toUpperCase()})
+                </span>
+                <span className="print-meta">{print.rarity}</span>
+              </li>
+            ))}
+          </ul>
+        </>
       )}
     </div>
   );
